@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>REGISTRATION</title>
+
+    <!-- Icons font CSS-->
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="css/main.css" rel="stylesheet" media="all">
+
+
+</head>
+
+<body>
+    <div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-1">
+                <div class="card-heading"></div>
+                <div class="card-body">
+                    <h2 class="title">Registration Form</h2>
+                    <form method="POST">
+                        <div class="input-group">
+                            <input class="input--style-1" type="text" placeholder="NAME" name="name">
+                        </div>
+                        <div class="input-group">
+                          <input class="input--style-1" type="email" placeholder="EMAIL" name="email" required>
+
+
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <input class="input--style-1 js-datepicker" type="text" placeholder="BIRTHDATE" name="birthday">
+                                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select name="gender">
+                                            <option disabled="disabled" selected="selected">GENDER</option>
+                                            <option>Male</option>
+                                            <option>Female</option>
+                                            <option>Other</option>
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <input class="input--style-1" type="text" placeholder="BRANCH" name="branch">
+                                </div>
+                            </div>
+                        </div>
+                      <!--  <div class="input-group">
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="class">
+                                    <option disabled="disabled" selected="selected">CATEGORY</option>
+                                    <option>Departmental Events</option>
+                                    <option>Cultural Fests</option>
+                                    <option>Sports Events</option>
+                                    <option>Clubs and Committee</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>-->
+
+                                    <ul id="menu">
+                                      <li class="parent"><a href="#">Departmental</a>
+                                      <ul class="child">
+                                        <li class="parent"><a href="#">Equinox<span class="expand">&raquo;</span></a>
+                                          <ul class="child">
+                                          <li><a href="#">Source Code</a></li>
+                                          <li><a href="#">Insync</a></li>
+                                          <li><a href="#">Shutterbug</a></li>
+                                          <li><a href="#">Tech Hunt</a></li>
+                                          <li><a href="#">Whitecollar</a></li>
+                                          <li><a href="#">Genesis</a></li>
+                                          <li><a href="#">Hackathon</a></li>
+                                          <li><a href="#">Workshop on AR and VR</a></li>
+                                          </ul>
+                                        </li>
+                                        <li><a href="#">Invasion</a></li>
+                                        <li><a href="#">Telekinesis</a></li>
+                                        <li><a href="#">Force</a></li>
+                                        <li><a href="#">Chemfest</a></li>
+                                        <li><a href="#">mecheaven</a></li>
+                                        <li><a href="#">Itiazza</a></li>
+                                        <li><a href="#">Iet Expo</a></li>
+                                      </ul>
+                                      </li>
+                                      <li class="parent"><a href="#">Cultural</a>
+                                      <ul class="child">
+                                        <li><a href="#">Rangoli</a></li>
+                                        <li><a href="#">Poster Competition</a></li>
+                                        <li><a href="#">Soft Skills</a></li>
+                                        <li><a href="#">Nakshatrache Dene</a></li>
+                                        <li><a href="#">Sketching and Drawing</a></li>
+                                        <li><a href="#">Personality Contest</a></li>
+                                        <li><a href="#">Fashion Show</a></li>
+                                      </ul>
+                                      </li>
+                                      <li class="parent"><a href="#">Sports</a>
+                                      <ul class="child">
+                                        <li><a href="#">Chess</a></li>
+                                        <li><a href="#">Badminton</a></li>
+                                        <li><a href="#">Carrom</a>
+                                        </li>
+                                        <li><a href="#">Cricket</a></li>
+                                        <li><a href="#">Football</a></li>
+                                        <li><a href="#">Table tennis</a></li>
+                                        <li><a href="#">Basketball</a></li>
+                                      </ul>
+                                      </li>
+                                      <li class="parent"><a href="#">Clubs and Committee</a>
+                                      <ul class="child">
+                                        <li><a href="#">CSI</a></li>
+                                        <li><a href="#">NSS</a></li>
+                                        <li><a href="#">ISTE</a></li>
+                                        <li><a href="#">IET</a></li>
+                                        <li><a href="#">Prayas</a></li>
+                                        <li><a href="#">Swapnapurti</a></li>
+                                        <li><a href="#">Rotaract</a></li>
+                                        <li><a href="#">Debuggers</a></li>
+                                        <li><a href="#">Whitespot</a></li>
+                                        <li><a href="#">Astro Club</a></li>
+                                        <li><a href="#">IOT</a></li>
+                                        <li><a href="#">Redx</a></li>
+                                        <li><a href="#">EDC</a></li>
+                                        <li><a href="#">Financial Literacy Club</a></li>
+                                      </ul>
+                                      </li>
+                                    </ul>
+
+
+
+
+
+
+<br>
+<br>
+
+                        <div class="p-t-20">
+                            <button class="btn btn--radius btn--green" type="submit" >Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <script src="vendor/datepicker/moment.min.js"></script>
+    <script src="vendor/datepicker/daterangepicker.js"></script>
+
+
+
+    <!-- Main JS-->
+    <script src="js/global.js"></script>
+
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
+<!-- end document-->

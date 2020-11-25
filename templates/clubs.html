@@ -1,0 +1,483 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <title>EVENTCON</title>
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       <link href="https://fonts.googleapis.com/css2?family=Asap:wght@500&display=swap" rel="stylesheet">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link href="https://fonts.googleapis.com/css?family=Archivo Black"  rel='stylesheet'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+      <style>
+            body{
+                  background-color: #0f4c75;
+            }
+            /* Heading of page*/
+            h2{
+                  text-align: center;
+                  font-family: 'Libre Baskerville', serif;
+                  color: white;
+                  margin-top: 50px;
+            }
+            /* Photo*/
+            #club-photo:hover,#committee:hover{
+                  box-shadow: 0px 3px 5px 3px #cccccc;
+            }
+            #club-photo{
+                  
+                  float: left;
+                  margin-top: 35px;
+                  background-position: center;
+                  margin-left: 80px;
+                  margin-bottom: 25px;
+                  position: relative;
+                  border: 5px solid #f08a5d;
+                  overflow: hidden;
+                  border-radius: 25px;
+                 
+            }
+            /* Info.*/
+            p{
+                  float: left;
+                  /*color: #bbe1fa;*/
+                  color: #000;
+                  font-size: 1.1em;
+                  margin-top: 20px;
+                  font-family: 'Asap', sans-serif;
+            }
+            /* Club name only */
+            h4{
+               color: #f4ea8e; 
+               margin-top: 50px;
+
+            }
+            /* Entry fees only */
+            span{
+                  color: #f4ea8e;
+                  font-size: 0.7em;
+                  line-height: 1.8;
+            }
+            #committee{
+                  background-color: #24a19c;
+                  margin-top: 50px;
+                  border: 5px solid #f08a5d;
+                  overflow: hidden;
+                  border-radius: 25px;
+                  padding: 20px; 
+            }
+
+
+
+body,h1,h2,h3,h4,h5,h6 {
+  font-family: "Raleway", sans-serif}
+
+body, html {
+  height: 100%;
+  line-height: 1.8;
+}
+
+
+.w3-bar .w3-button {
+  padding: 12px;
+}
+
+/* The actual content */
+.content {
+  padding: 20px 30px;
+  background-color: gray;
+  position: relative;
+  border-radius: 6px;
+}
+
+
+           /* Media Queries */
+            @media(min-width: 1200px)
+            {
+            }
+            @media(min-width: 992px) and (max-width: 1199px){
+                 
+                #committee{
+                         
+                         font-size: 1.1em;
+                         font-family: 'Asap', sans-serif;
+                  }  
+                  
+            }
+            @media(min-width: 768px) and (max-width: 991px)
+            {
+                 
+                  #committee{
+                        
+                         font-size: 1.1em;
+                         font-family: 'Asap', sans-serif;
+                  }
+                 
+            @media(max-width: 767px){
+
+                   #committee{
+                        text-align: center;
+                        font-size: 1.1em;
+                         font-family: 'Asap', sans-serif;
+                  }
+                  }
+      </style>
+</head>
+<body>
+
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top" >
+  <div class="w3-bar w3-white w3-card" id="myNavbar" style="min-height: 75px; padding-top: 12px;">
+    <a href="#home" class="w3-bar-item w3-btn"style="font-size: 150%; padding-top: 10px;">EVENTCON 2020</a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right " style="font-size: 125%">
+      <a href="#" class="w3-bar-item w3-btn"><i class="fa fa-home"></i> HOME</a>
+      <a href="{% url 'about' %}" class="w3-bar-item w3-btn"><i class='fa fa-exclamation-circle'></i> ABOUT</a>
+      <a href="#" class="w3-bar-item w3-btn"><i class="fa fa-th-large"></i> EVENTS</a>
+      <div class="w3-dropdown-hover">
+        <button class="w3-btn"> CATEGORIES
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+          <a href="{% url 'department' %}" class="w3-bar-item w3-btn">Departmental Events</a>
+          <a href="{% url 'cultural' %}" class="w3-bar-item w3-btn">Cultural Fests</a>
+          <a href="{% url 'sports' %}" class="w3-bar-item w3-btn">Sports Events</a>
+          <a href="{% url 'clubs' %}" class="w3-bar-item w3-btn">Clubs and Committees</a>
+          <a href="#" class="w3-bar-item w3-btn">Workshops and Webinars</a>
+        </div>
+      </div>
+     
+      <a href="{% url 'signin' %}" class="w3-bar-item w3-btn"><i class="fa fa-envelope"></i> LOGIN</a>
+      
+    </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="{% static 'javascript:void(0)' %}" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+  <a href="#home" onclick="w3_close()" class="w3-bar-item w3-button">HOME</a>
+  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+  <a href="#events" onclick="w3_close()" class="w3-bar-item w3-button">EVENTS</a>
+  <a href="#categories" onclick="w3_close()" class="w3-bar-item w3-button">CATEGORIES</a>
+  <a href="{% url 'signin' %}" onclick="w3_close()" class="w3-bar-item w3-button">LOGIN</a>
+</nav>
+
+
+
+      <h2 style="padding-top: 50px;">CLUBS AND COMMITTEES</h2>
+      <div class = "container">
+        <div class = "row" id = "committee">
+            <div class = "col-md-4 col-sm-6 hidden-xs">
+                 <div id = "club-photo">
+                   <img src = "{% static 'images/csi.jpg' %}" class="responsive">
+                 </div>
+            </div>
+             <h4 >COMPUTER SOCIETY OF INDIA(CSI)</h4>
+             <p class="hidden-sm hidden-xs">
+                 The Computer Society of India is a non-profit professional meet<br>to exchange views and information learn and share ideas.<br>The wide spectrum of members is committed to the advancement <br>of theory and practice of Computer Engineering and Technology Systems,<br> Science and Engineering,Information Processing and related Arts and Sciences.<br><span> * Entry fees : Rs.200 only.</span>
+             </p>
+                <span class = "hidden-md hidden-lg id" style="color: #000;">The wide spectrum of members is committed to the   advancement <br>of theory and practice of Computer Engineering and Technology Systems,<br> Science and Engineering,Information Processing and related Arts and Sciences.<br><span style="color: #f4ea8e; "> * Entry fees : Rs.200 only.</span>
+                </span>
+        </div>
+         <div class = "row" id = "committee">
+             <div class = "col-md-8 col-sm-6">
+             <h4 >NATIONAL SERVICE SCHEME(NSS)</h4>
+             <p class="hidden-sm hidden-xs">
+                 The overall aim of National Service Scheme as envisaged earlier, is to give an <br>
+                 extension dimension to the higher education system and orient the student youth<br>
+                  to community service while they are studying in educational institution.The motto <br>
+                  or watchword of the National Service Scheme is: 'NOT ME BUT YOU'. This reflects the<br>
+                  essence of democratic living and upholds the need for selfless service and appreciation <br>
+                  of the other person's point of view and also to show consideration for fellow human beings.<br>
+                   <span> * Entry fees : Rs.200 only.</span>
+             </p>
+                <span class = "hidden-md hidden-lg id" style="color: #000;"> The overall aim of National Service Scheme as envisaged earlier, is to give an <br>
+                 extension dimension to the higher education system and orient the student youth<br>
+                  to community service while they are studying in educational institution.The motto <br>
+                  or watchword of the National Service Scheme is: 'NOT ME BUT YOU'. This reflects the<br>
+                  essence of democratic living and upholds the need for selfless service and appreciation <br>
+                  of the other person's point of view and also to show consideration for fellow human beings.<br> <span style="color: #f4ea8e; "> * Entry fees : Rs.200 only.</span>
+                </span>
+               </div>
+                   <div id = "club-photo" class = "hidden-xs">
+                 <img src = "{% static 'images/nss.jpg' %}" class="responsive" height=""></div>
+            </div>
+
+             <div class = "row" id = "committee">
+            <div class = "col-md-4 col-sm-6 hidden-xs">
+                 <div id = "club-photo">
+                   <img src = "{% static 'images/iste.jpg' %}" class="responsive">
+                 </div>
+            </div>
+             <h4 >INDIAN SOCIETY FOR TECNICAL EDUCATION(ISTE)</h4>
+             <p class="hidden-sm hidden-xs">
+              The Indian Society for Technical Education (ISTE) is the leading <br>
+                 National Professional non-profit making Society with the motto of Career Development <br>
+                 of Teachers and Personality Development of Students and overall development <br>
+                 of our Technical Education System. K. K. Wagh Institute of Engineering Education and Research,<br>
+                  Nashik has ISTE students’ chapter since 2003. 
+                  <br>It is one of the most active chapters of the institute.
+                 <br><span> * Entry fees : Rs.200 only.</span>
+             </p>
+                <span class = "hidden-md hidden-lg id" style="color: #000;">K. K. Wagh Institute of Engineering Education and Research,<br>
+                  Nashik has ISTE students’ chapter since 2003. 
+                  <br>It is one of the most active chapters of the institute.<br><span style="color: #f4ea8e; "> * Entry fees : Rs.200 only.</span>
+                </span>
+        </div>
+
+        <div class = "row" id = "committee">
+             <div class = "col-md-8 col-sm-6">
+             <h4 >INSTITUTION OF ENGINEERING & TECHNOLOGY(IET)</h4>
+             <p class="hidden-sm hidden-xs">
+                The IET – The Institution of Engineering and Technology is one of the world’s largest <br>
+                multidisciplinary professional bodies of engineers with the stated mission of working to <br>
+                engineer a better world. It is a volunteer-led organization driven by the needs of members,<br>
+                 partner organizations, Academia and the larger society. The IET has 167,000 members in 150 <br>
+                 countries and work closely with Academia and Industry.<br>
+                   <span> * Entry fees : Rs.200 only.</span>
+             </p>
+                <span class = "hidden-md hidden-lg id" style="color: #000;">The IET – The Institution of Engineering and Technology is one of the world’s largest <br>
+                multidisciplinary professional bodies of engineers with the stated mission of working to <br>
+                engineer a better world. It is a volunteer-led organization driven by the needs of members,<br>
+                 partner organizations, Academia and the larger society. The IET has 167,000 members in 150 <br>
+                 countries and work closely with Academia and Industry.<br> <span style="color: #f4ea8e; "> * Entry fees : Rs.200 only.</span>
+                </span>
+               </div>
+                   <div id = "club-photo" class = "hidden-xs">
+                 <img src = "{% static 'images/iet.png' %}" class="responsive" height=""></div>
+            </div>
+
+          <div class = "row" id = "committee">
+            <div class = "col-md-4 col-sm-6 hidden-xs">
+                 <div id = "club-photo">
+                   <img src = "{% static 'images/prayas.png' %}" class="responsive">
+                 </div>
+            </div>
+             <h4 >PRAYAS STUDENT'S NGO</h4>
+             <p class="hidden-sm hidden-xs">
+              Prayas Youth Forum and Social Research Foundation is a non-profit organization to promote <br>
+              and support educational and development efforts in India.‘Prayas’ meaning endeavor.<br>
+               We are making an effort towards bridging the gap between India and Bharat <br>
+               (widely coined term for rural India) through contribution in different initiatives.
+             
+                 <br><span> * Entry fees : Rs.200 only.</span>
+             </p>
+                <span class = "hidden-md hidden-lg id" style="color: #000;"> Prayas Youth Forum and Social Research Foundation is a non-profit organization to promote <br>
+              and support educational and development efforts in India.‘Prayas’ meaning endeavor.<br>
+               We are making an effort towards bridging the gap between India and Bharat <br>
+               (widely coined term for rural India) through contribution in different initiatives.<br><span style="color: #f4ea8e; "> * Entry fees : Rs.200 only.</span>
+                </span>
+        </div>
+         <div class = "row" id = "committee">
+            <div class = "col-md-8 col-sm-6">
+             <h4 >SWAPNAPURTI FOUNDATION</h4>
+             <p class="hidden-sm hidden-xs">
+                 Swapnapurti Foundation is an NGO and non-profit organization to promote and support<br>
+                  educational and development efforts in India.It is working for rural students. <br>
+                  Main motto of this organization is to spread awareness in society. This NGO was established<br>
+                  4 years ago by SachinKakde (Electrical engineering student) and it's spread across<br>
+                   4 districts so far i.e. Nashik, Aurangabad, Jalgaon and Pune of Maharashtra state (India).    <br><span> * Entry fees : Rs.200 only.</span>
+             </p>
+                <span class = "visible-sm visible-xs" style="color: #000;">Swapnapurti Foundation is an NGO and non-profit organization to promote and support<br>
+                  educational and development efforts in India.It is working for rural students. <br>
+                  Main motto of this organization is to spread awareness in society. This NGO was established<br>
+                  4 years ago by SachinKakde (Electrical engineering student) and it's spread across<br>
+                   4 districts so far i.e. Nashik, Aurangabad, Jalgaon and Pune of Maharashtra state (India).  <br><span style="color: #f4ea8e; "> * Entry fees : Rs.200 only.</span>
+                </span>
+                </div>
+                <div id = "club-photo " class = "hidden-xs">
+                   <img src = "{% static 'images/swapnapurti.png' %}" class="responsive">
+                 </div>
+        </div>
+
+          <div class = "row" id = "committee">
+            <div class = "col-md-4 col-sm-6 hidden-xs">
+                 <div id = "club-photo">
+                   <img src = "{% static 'images\rotaract.jpg' %}" class="responsive">
+                 </div>
+            </div>
+             <h4 >ROTARACT CLUB</h4>
+             <p class="hidden-sm hidden-xs">
+                 Rotaract originally began as a Rotary International youth program in 1968<br>
+                  at Charlotte North Rotary Club in Charlotte, North Carolina, United States,<br>
+                  and has grown into a major Rotary-sponsored organization of over 10,904 clubs <br>
+                  spread around the world and 250,792 members in 184 countries.
+                  <br> It is a service, leadership, professional and community service organization <br>for young men and women between the ages 18–30.<br><span> * Entry fees : Rs.200 only.</span>
+             </p>
+                <span class = "hidden-md hidden-lg" style="color: #000;">It is a service, leadership, professional and community service organization <br>for young men and women between the ages 18–30.<br><span style="color: #f4ea8e; "> * Entry fees : Rs.200 only.</span>
+                </span>
+        </div>
+        <div class = "row" id = "committee">
+             <div class = "col-md-8 col-sm-6">
+             <h4 >DEBUGGER'S CLUB</h4>
+             <p class="hidden-sm hidden-xs">
+                 Debuggers’ Club is one of the most prestigious club present in K. K. Wagh College of Engineering<br>
+                  Education and Research, Nashik by Department of Computer Engineering. It was formed in the <br>
+                  year 1988 by Dr. V. D Barve(Principal), Prof. M. A. Shukhla (Head, Dept of Computer Engg.), <br>
+                  Prof. Dr. S. S. Sane and Mr. Kuruvilla Mathus(Student Co-ordinator) together to provide students a <br>
+                  platform to showcase their talents. It was one of the first club formed in the college and has<br>
+                   been conducting successful technical as well as non technical events ever since.<br>
+                   <span> * Entry fees : Rs.200 only.</span>
+             </p>
+                <span class = "hidden-md hidden-lg id" style="color: #000;"> Debuggers’ Club is one of the most prestigious club present in K. K. Wagh College of Engineering<br>
+                  Education and Research, Nashik by Department of Computer Engineering.<br>la Mathus(Student Co-ordinator) together to provide students a <br>
+                  platform to showcase their talents. It was one of the first club formed in the college and has<br>
+                   been conducting successful technical as well as non technical events ever since. <br> <span style="color: #f4ea8e; "> * Entry fees : Rs.200 only.</span>
+                </span>
+               </div>
+                   <div id = "club-photo" class = "hidden-xs">
+                 <img src = "{% static 'images/debugger.png' %}" class="responsive" height=""></div>
+        </div>
+         <div class = "row" id = "committee">
+            <div class = "col-md-4 col-sm-6 hidden-xs">
+                 <div id = "club-photo">
+                   <img src = "{% static 'images/whitespot.png' %}" class="responsive">
+                 </div>
+            </div>
+             <h4 >WHITESPOT CLUB</h4>
+             <p class="hidden-sm hidden-xs">
+                 The Whitespot club is formed in March, 2018 at K. K. Wagh institute of engineering <br>
+                 education and research, Nashik with an idea of making creative minds and come <br>
+                 together to present their creations to the society we live in. This, perhaps the <br>
+                 only, club running in the region of Nashik among engineering organizations that <br>
+                 motivates students to nurture their interest in film making and photography. <br>
+                 The club is run by students and for students of the organisation. <br><span> * Entry fees : Rs.200 only.</span>
+             </p>
+                <span class = "hidden-md hidden-lg id" style="color: #000;">This, perhaps the <br>
+                 only, club running in the region of Nashik among engineering organizations that <br>
+                 motivates students to nurture their interest in film making and photography. <br>
+                 The club is run by students and for students of the organisation.<br><span style="color: #f4ea8e; "> * Entry fees : Rs.200 only.</span>
+                </span>
+        </div>
+        <div class = "row" id = "committee">
+             <div class = "col-md-8 col-sm-6">
+             <h4 >ASTRO CLUB</h4>
+             <p class="hidden-sm hidden-xs">
+                 Astro Club of our technical Institute cooperate with, advise and assist students <br>
+                 interested in the science and astronomy.We encourage and arrange lectures and demonstrations at institutes.<br>
+                 We encourage students to develop own satellite and related accessories which may help in the development of Smart Nashik and online education.<br>
+                   <span> * Entry fees : Rs.200 only.</span>
+             </p>
+                <span class = "hidden-md hidden-lg id" style="color: #000;">Astro Club of our technical Institute cooperate with, advise and assist students <br>
+                 interested in the science and astronomy.We encourage and arrange lectures and demonstrations at institutes.<br>
+                 We encourage students to develop own satellite and related accessories which may help in the development of Smart Nashik and online education.  <br> <span style="color: #f4ea8e; "> * Entry fees : Rs.200 only.</span>
+                </span>
+               </div>
+                   <div id = "club-photo" class = "hidden-xs">
+                 <img src = "{% static 'images/astro.png' %}" class="responsive" height=""></div>
+        </div>
+        
+        
+         <div class = "row" id = "committee">
+            <div class = "col-md-4 col-sm-6 hidden-xs">
+                 <div id = "club-photo">
+                   <img src = "{% static 'images/iot.png' %}" class="responsive">
+                 </div>
+            </div>
+             <h4 >IOT CLUB</h4>
+             <p class="hidden-sm hidden-xs">
+              IOT Club organizes various workshops,webinars and award winning competitions around <br>
+              the year.It encourages students to build and develop various IOT related projects<br>
+              The major event organized by us is Project Idea Competition.
+                    <br><span> * Entry fees : Rs.200 only.</span>
+             </p>
+                <span class = "hidden-md hidden-lg id" style="color: #000;"> IOT Club organizes various workshops,webinars and award winning competitions around <br>
+              the year.It encourages students to build and develop various IOT related projects<br>
+              The major event organized by us is Project Idea Competition. <br><span style="color: #f4ea8e; "> * Entry fees : Rs.200 only.</span>
+                </span>
+        </div>
+        <div class = "row" id = "committee">
+             <div class = "col-md-8 col-sm-6">
+             <h4 >REDX CLUB</h4>
+             <p class="hidden-sm hidden-xs">
+                REDX brings together technical experts, innovators, researching institutions,<br>
+                implementation partners and corporate partners that will allow us to solve the<br>
+                most pressing challenges within our communities.REDX labs and clubs serve as gateways <br>
+                to the energy and creativity of innovators who are creating solutions to satisfy significant social needs.
+<br>
+                   <span> * Entry fees : Rs.200 only.</span>
+             </p>
+                <span class = "hidden-md hidden-lg id" style="color: #000;"> REDX brings together technical experts, innovators, researching institutions,<br>
+                implementation partners and corporate partners that will allow us to solve the<br>
+                most pressing challenges within our communities.REDX labs and clubs serve as gateways <br>
+                to the energy and creativity of innovators who are creating solutions to satisfy significant social needs. <br> <span style="color: #f4ea8e; "> * Entry fees : Rs.200 only.</span>
+                </span>
+               </div>
+                   <div id = "club-photo" class = "hidden-xs">
+                 <img src = "{% static 'images/redx.png' %}" class="responsive" height=""></div>
+        </div>
+         
+         <div class = "row" id = "committee">
+            <div class = "col-md-4 col-sm-6 hidden-xs">
+                 <div id = "club-photo">
+                   <img src = "{% static 'images/edc.jpg' %}" class="responsive">
+                 </div>
+            </div>
+             <h4 >ENTREPRENURSHIP DEVELOPMENT CELL(EDC)</h4>
+             <p class="hidden-sm hidden-xs">
+                The Institute has a very active Entrepreneurship development cell which organizes <br>
+                expert lectures conducted by industrialists/Entrepreneur’s and experienced <br>
+                professionals to develop entrepreneurial skills among the students and <br>
+                motivate them to take up entrepreneurship as a career option .The ED cell <br>
+                was established with the objective of promoting specialized knowledge in <br>
+                the field of entrepreneurship development.Dedicated Full Time UGC approved <br>
+                Senior Faculty as per AICTE Norms.<br><span> * Entry fees : Rs.200 only.</span>
+             </p>
+                <span class = "hidden-md hidden-lg id" style="color: #000;">The Institute has a very active Entrepreneurship development cell which organizes <br>
+                expert lectures conducted by industrialists/Entrepreneur’s and experienced professionals to <br>
+                develop entrepreneurial skills among the students and motivate them to take up entrepreneurship <br>
+                as a career option .The ED cell was established with the objective of promoting specialized <br>
+                knowledge in the field of entrepreneurship development.Dedicated Full Time UGC approved <br>
+                Senior Faculty as per AICTE Norms.<br><span style="color: #f4ea8e; "> * Entry fees : Rs.200 only.</span>
+                </span>
+        </div>
+        <div class = "row" id = "committee">
+             <div class = "col-md-8 col-sm-6">
+             <h4 >FINANCIAL LITERACY  CLUB</h4>
+             <p class="hidden-sm hidden-xs">
+                Financial Literacy Club organizes various expert talks and webinars <br>
+                focussing on financial topics.We guide our students and try to deal<br>
+                with financial issues.
+<br>
+                   <span> * Entry fees : Rs.200 only.</span>
+             </p>
+                <span class = "hidden-md hidden-lg id" style="color: #000;"> Financial Literacy Club organizes various expert talks and webinars <br>
+                focussing on financial topics.We guide our students and try to deal<br>
+                with financial issues.  <br> <span style="color: #f4ea8e; "> * Entry fees : Rs.200 only.</span>
+                </span>
+               </div>
+                   <div id = "club-photo" class = "hidden-xs">
+                 <img src = "{% static 'images/flc.jpg' %}" class="responsive" height=""></div>
+        </div>
+
+        </div>
+
+
+       
+      
+</body>
+</html>

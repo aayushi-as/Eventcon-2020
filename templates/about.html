@@ -1,0 +1,242 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>EVENTCON</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+	<link href="https://fonts.googleapis.com/css?family=Archivo Black" rel='stylesheet'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<style>
+		body {
+			background: #0f4c75;
+		}
+
+		h3 {
+			text-align: center;
+			font-family: 'Lora', serif;
+			color: white;
+			margin-top: 50px;
+
+		}
+
+		h2 {
+			margin-top: 80px;
+			font-family: 'Lora', serif;
+			color: white;
+			text-align: left;
+
+		}
+
+		#experience {
+			text-align: center;
+			line-height: -1;
+			border: 8px solid black;
+			background-color: #fff;
+			font-family: 'Lora', serif;
+			color: black;
+			margin-top: 35px;
+			box-sizing: border-box;
+			margin-right: 50px;
+			margin-left: 50px;
+			background: #f69e7b;
+			border-radius: 8px;
+		}
+
+		#contact a {
+			color: white;
+			margin-left: 50px;
+		}
+
+		p {
+			font-family: 'Josefin Sans', sans-serif;
+			color: #FFEFD5;
+			font-size: 1.5em;
+		}
+
+
+
+		@media(min-width: 992px) and (max-width: 1199px) {
+			p {
+
+				margin-left: 100px;
+			}
+
+		}
+
+		@media screen and (max-width: 990px) {}
+	</style>
+</head>
+
+<body>
+
+
+	<div class="w3-top">
+		<div class="w3-bar w3-white w3-card" id="myNavbar" style="min-height: 75px; padding-top: 12px;">
+			<a href="#home" class="w3-bar-item w3-btn" style="font-size: 150%; padding-top: 10px;">EVENTCON 2020</a>
+			<!-- Right-sided navbar links -->
+			<div class="w3-right " style="font-size: 125%">
+				<a href="#" class="w3-bar-item w3-btn"><i class="fa fa-home"></i> HOME</a>
+				<a href="{% url 'about' %}" class="w3-bar-item w3-btn"><i class='fa fa-exclamation-circle'></i>
+					ABOUT</a>
+				<a href="#" class="w3-bar-item w3-btn"><i class="fa fa-th-large"></i> EVENTS</a>
+				<div class="w3-dropdown-hover">
+					<button class="w3-btn"> CATEGORIES
+						<i class="fa fa-caret-down"></i>
+					</button>
+					<div class="w3-dropdown-content w3-bar-block w3-card-4">
+						<a href="{% url 'department' %}" class="w3-bar-item w3-btn">Departmental Events</a>
+						<a href="{% url 'cultural' %}" class="w3-bar-item w3-btn">Cultural Fests</a>
+						<a href="{% url 'sports' %}" class="w3-bar-item w3-btn">Sports Events</a>
+						<a href="{% url 'clubs' %}" class="w3-bar-item w3-btn">Clubs and Committees</a>
+						<a href="#" class="w3-bar-item w3-btn">Workshops and Webinars</a>
+					</div>
+				</div>
+
+				<a href="{% url 'signin' %}" class="w3-bar-item w3-btn"><i class="fa fa-envelope"></i> LOGIN</a>
+
+			</div>
+			<!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+			<a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
+				onclick="w3_open()">
+				<i class="fa fa-bars"></i>
+			</a>
+		</div>
+	</div>
+
+	<!-- Sidebar on small screens when clicking the menu icon -->
+	<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large"
+		style="display:none" id="mySidebar">
+		<a href="{% static 'javascript:void(0)' %}" onclick="w3_close()"
+			class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+		<a href="#home" onclick="w3_close()" class="w3-bar-item w3-button">HOME</a>
+		<a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+		<a href="#events" onclick="w3_close()" class="w3-bar-item w3-button">EVENTS</a>
+		<a href="#categories" onclick="w3_close()" class="w3-bar-item w3-button">CATEGORIES</a>
+		<a href="{% url 'signin' %}" onclick="w3_close()" class="w3-bar-item w3-button">LOGIN</a>
+	</nav>
+
+
+
+
+	<div id="main-content" class="container">
+		<h2 class="text-center" style="color: #f7f2e7;">ABOUT US</h2>
+		<div class="row">
+			<div class="col-md-5 col-sm-8">
+				<img src="{% static 'images/about.png' %}" id="image" alt="image">
+			</div>
+			<h2>Since 1970</h2>
+			<p>The institute was established in the year 1984 at Bhausahebnagar (Tal. Niphad, Dist. Nashik) and shifted
+				to
+				Nashik City in September 1986.As on date it is fully developed and provides accommodation. Building with
+				built
+				up area of 32,199 Sq.m. is one of the largest buildings in the City. All laboratories, classrooms etc.
+				are
+				designed as per the needs of the students.
+
+				The institute is approved by All India Council of Technical Education (AICTE), New Delhi and Government
+				of
+				Maharashtra, permanently affiliated to Savitribai Phule Pune University and has recognition under
+				section 2(F)
+				and 12(B) of (UGC ACT 1956). The institute is adjudged as Grade 'A' by Government of Maharashtra. The
+				institute
+				is Accredited by National Assessment & Accreditation Council (NAAC) with ‘A’ Grade, Accredited by HLACT
+				International. It is only institute in Nashik to be grouped thrice under “Platinum Category” by
+				AICTE-CII Survey
+				of Industry Linked Institutes and according to NIRF ranking survey 2016 ranked 85th amongst all
+				engineering
+				institutes in India. </p><br>
+			<p>Many extra curricular activities are organized throughout the year providing opportunities for students
+				to
+				exhibit their talents.There are active chapters of various socities like IE,IETE,ISTE,CSI etc.After
+				winning
+				several awards at national level,some of the students also participate in international events for
+				activites
+				like paper presentation & project competitions.Various tournaments are held every year & students
+				represent
+				Institute at national as well as international levels.Our Institute organizes departmental events every
+				year
+				between February to April which gets a overwhelming response all over the city.At the start of the year
+				various
+				competitions are being held for the biggest cultural event of our institute 'Maffick'.Every week the
+				half days
+				of students are filled with expert talks,workshops,webinars and motivational talks.
+			</p>
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<div id="experience">
+				<h1>50</h1>
+			</div>
+			<h3>Years of experience</h3>
+		</div>
+
+		<div class="col-md-4">
+			<div id="experience">
+				<h1>25 +</h1>
+			</div>
+			<h3>Events every year</h3>
+		</div>
+
+		<div class="col-md-4">
+			<div id="experience">
+				<h1>3000 +</h1>
+			</div>
+			<h3>Participants every year</h3>
+		</div>
+	</div>
+	<h3 style="color: yellowgreen;"> For more information <br>Contact Us</h3>
+	<div class="row">
+		<div class="col-md-4" id="contact">
+
+			<a href="#"><i class="fa fa-map-marker"
+					style="font-size:36px;color: yellow;vertical-align: center;margin-left: 120px;"></i></a>
+			<h3>K. K. Wagh Institute of Engineering Education & Research
+				Hirabai Haridas Vidyanagari, Amrutdham, Panchavati, Nashik – 422003</h3>
+		</div>
+		<div class="col-md-4" id="contact">
+			<a href="#"><i class="fa fa-fw fa-envelope"
+					style="font-size:36px;color: yellow;vertical-align: center;margin-left: 120px;"></i></a>
+			<h3>kkwieer@kkwagh.edu.in
+				kkwe_office@dataone.in
+				kkwieer@gmail.com</h3>
+		</div>
+		<div class="col-md-4" id="contact">
+			<a href="#"><i class="fa fa-phone"
+					style="font-size:36px;color: yellow;vertical-align: center;margin-left: 120px;"></i></a>
+			<h3>+91 253 2512876 / <br>
+				2512867<br>
+				Fax No.: +91 253 2511962 / <br>
+				2518870</h3>
+
+		</div>
+
+
+
+
+</body>
+
+</html>

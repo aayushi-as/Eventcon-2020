@@ -1,0 +1,345 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<title>EVENTCON</title>
+	  <meta charset="utf-8">
+		<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+			<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet">
+			<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&display=swap" rel="stylesheet">
+			<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
+			<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+			<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+			 <link href="https://fonts.googleapis.com/css2?family=Asap:wght@500&display=swap" rel="stylesheet">
+			<script src="{% static 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js' %}"></script>
+			<script src="{% static 'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js' %}"></script>
+      <style>
+            body{
+                  background-color: #0f4c75;
+            }
+            /* Heading of page*/
+            h2{
+                  text-align: center;
+                  font-family: 'Libre Baskerville', serif;
+                  color: white;
+                  margin-top: 50px;
+            }
+            /* Photo*/
+            #club-photo:hover,#committee:hover{
+                  box-shadow: 0px 3px 5px 3px #cccccc;
+            }
+            #club-photol{
+
+                  float: left;
+                  margin-top: 35px;
+                  background-position: center;
+                  margin-left: 20px;
+                  margin-bottom: 25px;
+                  margin-right: 300px;
+                  position: relative;
+                  border: 5px solid #f08a5d;
+                  overflow: hidden;
+                  border-radius: 25px;
+
+            }
+            #club-photor{
+
+                  float: right;
+                  margin-top: 35px;
+                  background-position: center;
+                  margin-left: 10px;
+                  margin-bottom: 25px;
+                  margin-right: 100px;
+                  position: relative;
+                  border: 5px solid #f08a5d;
+                  overflow: hidden;
+                  border-radius: 25px;
+            }
+
+            /* Info.*/
+            p{
+                  float: left;
+                  /*color: #bbe1fa;*/
+                  color: #000;
+                  font-size: 1.1em;
+                  margin-top: 20px;
+                  font-family: 'Asap', sans-serif;
+            }
+            /* Club name only */
+            h4{
+               color: #f4ea8e;
+               margin-top: 50px;
+
+            }
+            /* Entry fees only */
+            span{
+                  color: #f4ea8e;
+                  font-size: 0.7em;
+                  line-height: 1.8;
+            }
+            #committee{
+                  background-color: #24a19c;
+                  margin-top: 50px;
+                  border: 5px solid #f08a5d;
+                  overflow: hidden;
+                  border-radius: 25px;
+                  padding: 20px;
+            }
+           /* Media Queries */
+            @media(min-width: 1200px)
+            {
+            }
+            @media(min-width: 992px) and (max-width: 1199px){
+
+                #committee{
+
+                         font-size: 1.1em;
+                         font-family: 'Asap', sans-serif;
+                  }
+
+            }
+            @media(min-width: 768px) and (max-width: 991px)
+            {
+
+                  #committee{
+
+                         font-size: 1.1em;
+                         font-family: 'Asap', sans-serif;
+                  }
+            }
+            @media(max-width: 767px){
+
+                   #committee{
+                        text-align: center;
+                        font-size: 1.1em;
+                         font-family: 'Asap', sans-serif;
+                  }
+                }
+                  footer{
+                     background-color: #333333;
+                     text-align: center;
+                  }
+
+                  /* Create three equal columns that floats next to each other */
+                  .column {
+                    float: left;
+                    width: 33.33%;
+                    padding: 10px;
+                    height: 350px; /* Should be removed. Only for demonstration */
+                   /* border: 15px solid #9BA8A8 ; */
+
+                    /*margin: 20px;*/
+                  }
+
+                  /* Clear floats after the columns */
+                  .row:after {
+                    content: "";
+                    display: table;
+                    clear: both;
+
+
+                  }
+                  #tohover:hover{
+                    background-color: #9BA8A8;
+                  }
+
+                  /* Gliff icons*/
+
+
+                  .fa {
+                    padding: 30px;
+                    font-size: 30px;
+                    width: 30px;
+                    text-align: center;
+                    text-decoration: none;
+                    margin: 5px 2px;
+                    border-radius: 50%;
+                  }
+                  .fa:hover {
+                      opacity: 0.7;
+                  }
+
+                  .fa-facebook {
+                    background: #3B5998;
+                    color: white;
+                  }
+                  .fa-twitter {
+                    background: #55ACEE;
+                    color: white;
+                  }
+                  .fa-linkedin {
+                    background: #007bb5;
+                    color: white;
+                  }
+                  .fa-instagram {
+                    background: #125688;
+                    color: white;
+                  }
+
+                  /* Media Queries*/
+                  @media screen and (max-width: 990px) {
+                    .column {
+                      width: 100%;
+
+                    }
+                  }
+                  }
+      </style>
+</head>
+<body>
+      <h2>EQUINOX</h2>
+      <div class = "container">
+        <div class = "row" id = "committee">
+            <div class = "col-md-4 col-sm-6 hidden-xs">
+                 <div id = "club-photol">
+                   <img src = "{% static 'images\source_code.jpg' %}" class="responsive">
+                 </div>
+            </div>
+             <h4>SOURCE CODE</h4>
+             <p class="hidden-sm hidden-xs">
+                 TALK IS CHEAP! SHOW ME THE CODE<br><span> Coding Competion</span>
+             </p>
+                <span class = "hidden-md hidden-lg id" style="color: #000;">TALK IS CHEAP! SHOW ME THE CODE<span style="color: #f4ea8e; "> Coding Competion</span>
+                </span>
+        </div>
+         <div class = "row" id = "committee">
+             <div class = "col-md-8 col-sm-6">
+             <h4>INKSYNC</h4>
+             <p class="hidden-sm hidden-xs">
+                 WRITE INSIDE OUT.GIVE PEOPLE SOMETHING TO THINK ABOUT<br>
+                 <span> Blog Writing Competition.</span></p>
+                <span class = "hidden-md hidden-lg id" style="color: #000;">A post either in English or Marathi topic<br>Round 2</br>Selected students will enter final round which is a surprise round. <span style="color: #f4ea8e; "> * Entry fees : Rs.200 only.</span>
+                </span>
+               </div>
+                   <div id = "club-photor" class = "hidden-xs">
+                 <img src = "{% static 'images\inksync.jpg' %}" height="170px" width="250px" class="responsive"></div>
+            </div>
+
+             <div class = "row" id = "committee">
+            <div class = "col-md-4 col-sm-6 hidden-xs">
+                 <div id = "club-photol">
+                   <img src = "{% static 'images\shutterbug.jpg' %}" class="responsive">
+                 </div>
+            </div>
+             <h4 >SHUTTERBUG</h4>
+             <p class="hidden-sm hidden-xs">
+              CHANGE THE LENS, CHANGE THE STORY
+                 <span><br>
+                  Round 1<br>Something of yours<br>Round 2<br>Click the campus<br>Round 3<br>Click according to theme.<br>Entry Fees:50/</span>
+             </p>
+        </div>
+
+        <div class = "row" id = "committee">
+             <div class = "col-md-8 col-sm-6">
+             <h4 >TECH HUNT</h4>
+             <p class="hidden-sm hidden-xs">
+                ARE YOU THE NEXT GEEK SHERLOCK?
+
+             </p>
+
+               </div>
+                   <div id = "club-photor" class = "hidden-xs">
+                 <img src = "{% static 'images\tech_hunt.jpg' %}" class="responsive" height="170px" width="250px"></div>
+            </div>
+
+          <div class = "row" id = "committee">
+            <div class = "col-md-4 col-sm-6 hidden-xs">
+                 <div id = "club-photol">
+                   <img src = "{% static 'images\white_collar.jpg' %}" class="responsive">
+                 </div>
+            </div>
+             <h4 >WHITECOLLAR</h4>
+             <p class="hidden-sm hidden-xs">
+
+               BE SMART! BE INTERVIEW READY!
+                 <br><span> Round 1<br>Aptitude test<br>Round 2<br>Group discussion<br>Round 3<br>Personal Interview</span>
+             </p>
+
+        </div>
+        <div class = "row" id = "committee">
+             <div class = "col-md-8 col-sm-6">
+             <h4 >GENESIS</h4>
+             <p class="hidden-sm hidden-xs">
+                EMPOWERED BY INNOVATION <br><span>200/- team of 4 </span>
+              </p>
+
+               </div>
+                   <div id = "club-photor" class = "hidden-xs">
+                 <img src = "{% static 'images\genesis.jpg' %}" class="responsive" height="170px" width="250px"></div>
+            </div>
+
+
+
+        <div class = "row" id = "committee">
+            <div class = "col-md-4 col-sm-6 hidden-xs">
+                 <div id = "club-photol">
+                   <img src = "{% static 'images\hackathon.jpg' %}" height="170px" width="250px" class="responsive">
+                 </div>
+            </div>
+             <h4 >HACKATHON</h4>
+             <p class="hidden-sm hidden-xs">
+                OUTWITH.OUTPLAY.OUTLAST.ARE YOU NEXT GEEK SHERLOCK
+                  <br>
+             </p>
+        </div>
+
+         <div class = "row" id = "committee">
+             <div class = "col-md-8 col-sm-6">
+             <h4 >WORKSHOP ON AR & VR</h4>
+             <p class="hidden-sm hidden-xs">
+                 SEE UNREAL THINGS HAPPEN!
+                   <span> <br>
+                    Entry fees : Rs.200 only.</span>
+             </p>
+           </div>
+
+              <div id = "club-photor" class = "hidden-xs">
+                 <img src = "{% static 'images\ar_vr.jpg' %}" class="responsive" height="170px" width="250px"></div>
+            </div>
+      <br>
+      <br>
+
+
+<footer>
+  <div class="row">
+  <div class="column">
+    <h2>Programs</h2>
+    <p id="tohover">Technical Events</p>
+    <p id="tohover">Cultural Events</p>
+    <p id="tohover">Sports</p>
+    <p id="tohover">Webinars & Workshops</p>
+    <p id="tohover">Be a Sponsorer</p>
+  </div>
+
+  <div class="column">
+    <h2>Useful Links</h2>
+    <p id="tohover">Home</p>
+    <p id="tohover">About Us </p>
+    <p id="tohover">Departments</p>
+    <p id="tohover">Major Events</p>
+    <p id="tohover">FAQ's</p>
+    <p id="tohover">Help</p>
+    <p id="tohover">Site Map</p>
+  </div>
+
+  <div class="column">
+
+    <h2>Phone   <i class="fa fa-phone" style="font-size:28px;color:red"></i><i class="fa fa-envelope" style="font-size:48px;color:red"></i></h2>
+    <a href="#" class="fa fa-facebook"></a>
+    <a href="#" class="fa fa-twitter"></a>
+    <a href="#" class="fa fa-linkedin"></a>
+    <a href="#" class="fa fa-instagram"></a>
+    <p id="tohover">Subscribe Us!</p>
+
+<br>
+  </div>
+</div>
+<p>&#169;Copyright@2020 All rights reserved</p>
+    </footer>
+</body>
+</html>

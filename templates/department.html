@@ -1,0 +1,517 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link href="https://fonts.googleapis.com/css?family=Archivo Black"  rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/department.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animation.css' %}">
+    <style>
+         body,h1,h2,h3,h4,h5,h6 {
+  font-family: "Raleway", sans-serif}
+
+body, html {
+  height: 100%;
+  line-height: 1.8;
+}
+
+
+.w3-bar .w3-button {
+  padding: 12px;
+}
+
+/* The actual content */
+.content {
+  padding: 20px 30px;
+  background-color: gray;
+  position: relative;
+  border-radius: 6px;
+}
+    </style>
+</head>
+<body>
+
+    <!-- Navbar (sit on top) -->
+<div class="w3-top" >
+    <div class="w3-bar w3-white w3-card" id="myNavbar" style="min-height: 75px; padding-top: 12px;">
+      <a href="#home" class="w3-bar-item w3-btn"style="font-size: 150%; padding-top: 10px;">EVENTCON 2020</a>
+      <!-- Right-sided navbar links -->
+      <div class="w3-right " style="font-size: 125%">
+        <a href="#" class="w3-bar-item w3-btn"><i class="fa fa-home"></i> HOME</a>
+        <a href="{% url 'about' %}" class="w3-bar-item w3-btn"><i class='fa fa-exclamation-circle'></i> ABOUT</a>
+        <a href="#" class="w3-bar-item w3-btn"><i class="fa fa-th-large"></i> EVENTS</a>
+        <div class="w3-dropdown-hover">
+          <button class="w3-btn"> CATEGORIES
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="w3-dropdown-content w3-bar-block w3-card-4">
+            <a href="{% url 'department' %}" class="w3-bar-item w3-btn">Departmental Events</a>
+            <a href="{% url 'cultural' %}" class="w3-bar-item w3-btn">Cultural Fests</a>
+            <a href="{% url 'sports' %}" class="w3-bar-item w3-btn">Sports Events</a>
+            <a href="{% url 'clubs' %}" class="w3-bar-item w3-btn">Clubs and Committees</a>
+            <a href="#" class="w3-bar-item w3-btn">Workshops and Webinars</a>
+          </div>
+        </div>
+        {% if user.is_authenticated %}
+        <a href = "logout" class="w3-bar-item w3-btn"><i class="fa fa-envelope">Logout</a>
+        {% else %}
+        <a href="{% url 'signin' %}" class="w3-bar-item w3-btn"><i class="fa fa-envelope"></i> LOGIN</a>
+        {% endif %}
+      </div>
+      <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+  
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  </div>
+  
+  <!-- Sidebar on small screens when clicking the menu icon -->
+  <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+    <a href="{% static 'javascript:void(0)' %}" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+    <a href="#home" onclick="w3_close()" class="w3-bar-item w3-button">HOME</a>
+    <a href="{% url 'about' %}" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+    <a href="#events" onclick="w3_close()" class="w3-bar-item w3-button">EVENTS</a>
+    <a href="#categories" onclick="w3_close()" class="w3-bar-item w3-button">CATEGORIES</a>
+    <a href="{% url 'signin' %}" onclick="w3_close()" class="w3-bar-item w3-button">LOGIN</a>
+  </nav>
+<!-- --------------------------- MAIN (Center website)----------------------------- -->
+
+<div class="main">
+    <div id=container>
+        <div>Departmental</div>
+        <div>Events</div>
+        <div id=flip>
+          <div><div>Win</div></div>
+          <div><div>Participate</div></div>
+          <div><div>Register</div></div>
+        </div>
+      </div>
+    <!-- ---------------------Department Image Portfolio--------------------------- -->
+    <div class="row">
+        <div class="column">
+            <div class="content">
+                <img src="{% static './images/Logo/Equinox.jpg' %}" alt="Equinox Logo" style="width:100%" data-toggle="modal" data-target="#Equinox_Modal">
+                <h3>EQUINOX</h3>
+                <h4>Computer Department</h4>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="content">
+                <img src="{% static './images/Logo/Invasion.jpg' %}" alt="Invasion_Logo" style="width:100%" data-toggle="modal" data-target="#Invasion_Modal">
+                <h3>INVASION</h3>
+                <h4>Production Department</h4>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="content">
+                <img src="{% static './images/Logo/Telekinesis.jpg' %}" alt="Telekinesis_Logo" style="width:100%" data-toggle="modal" data-target="#Telekinesis_Modal">
+                <h3>TELEKINESIS</h3>
+                <h4>Electronics &amp; Tc Department</h4>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="content">
+                <img src="{% static './images/Logo/force.jpg' %}" alt="Force_Logo" style="width:100%" data-toggle="modal" data-target="#Force_Modal">
+                <h3>FORCE</h3>
+                <h4>Civil Department</h4>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="content">
+                <img src="{% static './images/Logo/Chemfest.jpg' %}" alt="Chemfest_Logo" style="width:100%" data-toggle="modal" data-target="#Chemfest_Modal">
+                <h3>CHEMFEST</h3>
+                <h4>Chemical Department</h4>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="content">
+                <img src="{% static './images/Logo/Mecheaven.jpg' %}" alt="Mecheaven_Logo" style="width:100%" data-toggle="modal" data-target="#Mecheaven_Modal">
+                <h3>MECHEAVEN</h3>
+                <h4>Mechanical Department</h4>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="content">
+                <img src="{% static './images/nature.jpeg' %}" alt="Itiazza_Logo" style="width:100%" data-toggle="modal" data-target="#Itiazza_Modal">
+                <h3>ITIAZAA</h3>
+                <h4>IT Department</h4>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="content">
+                <img src="{% static './images/Logo/IET.jpg' %}" alt="IET_Logo" style="width:100%" data-toggle="modal" data-target="#IET_Modal">
+                <h3>IET EXPO</h3>
+                <h4>Electrical Department</h4>
+            </div>
+        </div>
+    </div>
+    <!-- -----------------End of Department Image Portfolio------------------------ -->
+</div>
+<!-- -----------------------End of MAIN (Center website)--------------------------- -->
+<!--  -----------------------------Equinox Modal------------------------------------ -->
+<div class="modal fade" id="Equinox_Modal">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+
+        <!---------- Modal Header------------ -->
+            <div class="department">
+        <!-- <div class="modal-header"></div> -->
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4>DEPARTMENT OF COMPUTER ENGINEERING</h4>
+                <h5>presents</h5>
+                <h4>EQUINOX 2020</h4>
+            </div>
+            <hr>
+        <!---------- Modal Body------------ -->
+            <img src="{% static './images/Poster/Equinox_P.jpg' %}" alt="equinox" width="90%" class="dept-images">
+            <a href="{% url 'equinox1' %}" class="w3-bar-item w3-btn">EQUINOX</a>
+            <div class="modal-body">
+                <h5 style="text-align: center;">Do register for events!</h5>
+
+                <ul class="list-group text-center list-group" style="margin: 2rem;" id="listId">
+                    <li class="list-group-item list-group-item-info">Source Code</li>
+                    <li class="list-group-item list-group-item-danger">Inksync</li>
+                    <li class="list-group-item list-group-item-warning">Shutterburg</li>
+                    <li class="list-group-item list-group-item-info">Hackathon</li>
+                    <li class="list-group-item list-group-item-danger">Tech-Hunt</li>
+                    <li class="list-group-item list-group-item-warning">White Collar</li>
+                    <li class="list-group-item list-group-item-info">Lekh Yaag</li>
+                    <li class="list-group-item list-group-item-danger">Genesis</li>
+                    <li class="list-group-item list-group-item-warning">Workshop on AR and VR</li>
+                </ul>
+            </div>
+
+        <!---------- Modal Footer------------ -->
+            <div class="modal-footer department">
+                <h4>Get ready for this symposium!</h4>
+                <button type="button" class="btn btn-danger">Event Details</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- -----------------------------Invasion Modal------------------------------------ -->
+<div class="modal fade" id="Invasion_Modal">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+
+        <!---------- Modal Header------------ -->
+            <div class="department">
+        <!-- <div class="modal-header"></div> -->
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4>DEPARTMENT OF PRODUCTION ENGINEERING</h4>
+                <h5>presents</h5>
+                <h4>INVASION 2020</h4>
+            </div>
+            <hr>
+        <!---------- Modal Body------------ -->
+            <img src="{% static './images/Poster/Invasion_P.jpg' %}" alt="Invasion" width="90%" class="dept-images">
+
+            <div class="modal-body">
+                <h5 style="text-align: center;">Do register for events!</h5>
+
+                <ul class="list-group text-center list-group" style="margin: 2rem;" id="listId">
+                    <li class="list-group-item list-group-item-info">Source Code</li>
+                    <li class="list-group-item list-group-item-danger">Inksync</li>
+                    <li class="list-group-item list-group-item-warning">Shutterburg</li>
+                    <li class="list-group-item list-group-item-info">Hackathon</li>
+                    <li class="list-group-item list-group-item-danger">Tech-Hunt</li>
+                    <li class="list-group-item list-group-item-warning">White Collar</li>
+                    <li class="list-group-item list-group-item-info">Lekh Yaag</li>
+                    <li class="list-group-item list-group-item-danger">Genesis</li>
+                    <li class="list-group-item list-group-item-warning">Workshop on AR and VR</li>
+                </ul>
+            </div>
+
+        <!---------- Modal Footer------------ -->
+            <div class="modal-footer department">
+                <h4>Get ready for this symposium!</h4>
+                <button type="button" class="btn btn-danger">Event Details</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- ----------------------------Telekinesis Modal------------------------------------ -->
+<div class="modal fade" id="Telekinesis_Modal">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+
+        <!---------- Modal Header------------ -->
+            <div class="department">
+        <!-- <div class="modal-header"></div> -->
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4>DEPARTMENT OF ELECTRONICS ENGINEERING</h4>
+                <h5>presents</h5>
+                <h4>TELEKINESIS 2020</h4>
+            </div>
+            <hr>
+        <!---------- Modal Body------------ -->
+            <img src="{% static './images/Poster/Telekinesis_P.jpg' %}" alt="Telekinesis" width="90%" class="dept-images">
+
+            <div class="modal-body">
+                <h5 style="text-align: center;">Do register for events!</h5>
+
+                <ul class="list-group text-center list-group" style="margin: 2rem;" id="listId">
+                    <li class="list-group-item list-group-item-info">Source Code</li>
+                    <li class="list-group-item list-group-item-danger">Inksync</li>
+                    <li class="list-group-item list-group-item-warning">Shutterburg</li>
+                    <li class="list-group-item list-group-item-info">Hackathon</li>
+                    <li class="list-group-item list-group-item-danger">Tech-Hunt</li>
+                    <li class="list-group-item list-group-item-warning">White Collar</li>
+                    <li class="list-group-item list-group-item-info">Lekh Yaag</li>
+                    <li class="list-group-item list-group-item-danger">Genesis</li>
+                    <li class="list-group-item list-group-item-warning">Workshop on AR and VR</li>
+                </ul>
+            </div>
+
+        <!---------- Modal Footer------------ -->
+            <div class="modal-footer department">
+                <h4>Get ready for this symposium!</h4>
+                <button type="button" class="btn btn-danger">Event Details</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- -----------------------------Force Modal------------------------------------ -->
+<div class="modal fade" id="Force_Modal">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+
+        <!---------- Modal Header------------ -->
+            <div class="department">
+        <!-- <div class="modal-header"></div> -->
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4>DEPARTMENT OF CIVIL ENGINEERING</h4>
+                <h5>presents</h5>
+                <h4>FORCE 2020</h4>
+            </div>
+            <hr>
+        <!---------- Modal Body------------ -->
+            <img src="{% static './images/Poster/Force_P.jpg' %}" alt="Force" width="90%" class="dept-images">
+
+            <div class="modal-body">
+                <h5 style="text-align: center;">Do register for events!</h5>
+
+                <ul class="list-group text-center list-group" style="margin: 2rem;" id="listId">
+                    <li class="list-group-item list-group-item-info">Source Code</li>
+                    <li class="list-group-item list-group-item-danger">Inksync</li>
+                    <li class="list-group-item list-group-item-warning">Shutterburg</li>
+                    <li class="list-group-item list-group-item-info">Hackathon</li>
+                    <li class="list-group-item list-group-item-danger">Tech-Hunt</li>
+                    <li class="list-group-item list-group-item-warning">White Collar</li>
+                    <li class="list-group-item list-group-item-info">Lekh Yaag</li>
+                    <li class="list-group-item list-group-item-danger">Genesis</li>
+                    <li class="list-group-item list-group-item-warning">Workshop on AR and VR</li>
+                </ul>
+            </div>
+
+        <!---------- Modal Footer------------ -->
+            <div class="modal-footer department">
+                <h4>Get ready for this symposium!</h4>
+                <button type="button" class="btn btn-danger">Event Details</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- -----------------------------Chemfest Modal------------------------------------ -->
+<div class="modal fade" id="Chemfest_Modal">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+
+        <!---------- Modal Header------------ -->
+            <div class="department">
+        <!-- <div class="modal-header"></div> -->
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4>DEPARTMENT OF CHEMICAL ENGINEERING</h4>
+                <h5>presents</h5>
+                <h4>CHEMFEST 2020</h4>
+            </div>
+            <hr>
+        <!---------- Modal Body------------ -->
+            <img src="{% static './images/Poster/Chemfest_P.jpg' %}" alt="Chemfest" width="90%" class="dept-images">
+
+            <div class="modal-body">
+                <h5 style="text-align: center;">Do register for events!</h5>
+
+                <ul class="list-group text-center list-group" style="margin: 2rem;" id="listId">
+                    <li class="list-group-item list-group-item-info">Source Code</li>
+                    <li class="list-group-item list-group-item-danger">Inksync</li>
+                    <li class="list-group-item list-group-item-warning">Shutterburg</li>
+                    <li class="list-group-item list-group-item-info">Hackathon</li>
+                    <li class="list-group-item list-group-item-danger">Tech-Hunt</li>
+                    <li class="list-group-item list-group-item-warning">White Collar</li>
+                    <li class="list-group-item list-group-item-info">Lekh Yaag</li>
+                    <li class="list-group-item list-group-item-danger">Genesis</li>
+                    <li class="list-group-item list-group-item-warning">Workshop on AR and VR</li>
+                </ul>
+            </div>
+
+        <!---------- Modal Footer------------ -->
+            <div class="modal-footer department">
+                <h4>Get ready for this symposium!</h4>
+                <button type="button" class="btn btn-danger">Event Details</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- -----------------------------Mecheaven Modal------------------------------------ -->
+<div class="modal fade" id="Mecheaven_Modal">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+
+        <!---------- Modal Header------------ -->
+            <div class="department">
+        <!-- <div class="modal-header"></div> -->
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4>DEPARTMENT OF MECHANICAL ENGINEERING</h4>
+                <h5>presents</h5>
+                <h4>MECHEAVEN 2020</h4>
+            </div>
+            <hr>
+        <!---------- Modal Body------------ -->
+            <img src="{% static './images/Poster/Mecheaven_P.jpg' %}" alt="Mecheaven" width="90%" class="dept-images">
+
+            <div class="modal-body">
+                <h5 style="text-align: center;">Do register for events!</h5>
+
+                <ul class="list-group text-center list-group" style="margin: 2rem;" id="listId">
+                    <li class="list-group-item list-group-item-info">Source Code</li>
+                    <li class="list-group-item list-group-item-danger">Inksync</li>
+                    <li class="list-group-item list-group-item-warning">Shutterburg</li>
+                    <li class="list-group-item list-group-item-info">Hackathon</li>
+                    <li class="list-group-item list-group-item-danger">Tech-Hunt</li>
+                    <li class="list-group-item list-group-item-warning">White Collar</li>
+                    <li class="list-group-item list-group-item-info">Lekh Yaag</li>
+                    <li class="list-group-item list-group-item-danger">Genesis</li>
+                    <li class="list-group-item list-group-item-warning">Workshop on AR and VR</li>
+                </ul>
+            </div>
+
+        <!---------- Modal Footer------------ -->
+            <div class="modal-footer department">
+                <h4>Get ready for this symposium!</h4>
+                <button type="button" class="btn btn-danger">Event Details</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- -----------------------------Itiazza Modal------------------------------------ -->
+<div class="modal fade" id="Itiazza_Modal">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+
+        <!---------- Modal Header------------ -->
+            <div class="department">
+        <!-- <div class="modal-header"></div> -->
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4>DEPARTMENT OF COMPUTER ENGINEERING</h4>
+                <h5>presents</h5>
+                <h4>EQUINOX 2020</h4>
+            </div>
+            <hr>
+        <!---------- Modal Body------------ -->
+            <img src="{% static './images/Equinox2020.jpg' %}" alt="equinox" width="90%" class="dept-images">
+
+            <div class="modal-body">
+                <h5 style="text-align: center;">Do register for events!</h5>
+
+                <ul class="list-group text-center list-group" style="margin: 2rem;" id="listId">
+                    <li class="list-group-item list-group-item-info">Source Code</li>
+                    <li class="list-group-item list-group-item-danger">Inksync</li>
+                    <li class="list-group-item list-group-item-warning">Shutterburg</li>
+                    <li class="list-group-item list-group-item-info">Hackathon</li>
+                    <li class="list-group-item list-group-item-danger">Tech-Hunt</li>
+                    <li class="list-group-item list-group-item-warning">White Collar</li>
+                    <li class="list-group-item list-group-item-info">Lekh Yaag</li>
+                    <li class="list-group-item list-group-item-danger">Genesis</li>
+                    <li class="list-group-item list-group-item-warning">Workshop on AR and VR</li>
+                </ul>
+            </div>
+
+        <!---------- Modal Footer------------ -->
+            <div class="modal-footer department">
+                <h4>Get ready for this symposium!</h4>
+                <button type="button" class="btn btn-danger">Event Details</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- -----------------------------IET Modal------------------------------------ -->
+<div class="modal fade" id="IET_Modal">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+
+        <!---------- Modal Header------------ -->
+            <div class="department">
+        <!-- <div class="modal-header"></div> -->
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4>DEPARTMENT OF ELECTRICAL ENGINEERING</h4>
+                <h5>presents</h5>
+                <h4>IET EXPO 2020</h4>
+            </div>
+            <hr>
+        <!---------- Modal Body------------ -->
+            <img src="{% static './images/Poster/Equinox_P.jpg' %}" alt="IET expo" width="90%" class="dept-images">
+
+            <div class="modal-body">
+                <h5 style="text-align: center;">Do register for events!</h5>
+
+                <ul class="list-group text-center list-group" style="margin: 2rem;" id="listId">
+                    <li class="list-group-item list-group-item-info">Source Code</li>
+                    <li class="list-group-item list-group-item-danger">Inksync</li>
+                    <li class="list-group-item list-group-item-warning">Shutterburg</li>
+                    <li class="list-group-item list-group-item-info">Hackathon</li>
+                    <li class="list-group-item list-group-item-danger">Tech-Hunt</li>
+                    <li class="list-group-item list-group-item-warning">White Collar</li>
+                    <li class="list-group-item list-group-item-info">Lekh Yaag</li>
+                    <li class="list-group-item list-group-item-danger">Genesis</li>
+                    <li class="list-group-item list-group-item-warning">Workshop on AR and VR</li>
+                </ul>
+            </div>
+
+        <!---------- Modal Footer------------ -->
+            <div class="modal-footer department">
+                <h4>Get ready for this symposium!</h4>
+                <button type="button" class="btn btn-danger">Event Details</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

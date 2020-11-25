@@ -1,0 +1,24 @@
+{% load static %}
+{% static "images" as baseUrl %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'css/animation.css' %}">
+</head>
+<body>
+  <div id=container>
+    <div>Departmental</div>
+    <div>Events</div>
+    <div id=flip>
+      <div><div>Win</div></div>
+      <div><div>Participate</div></div>
+      <div><div>Register</div></div>
+    </div>
+  </div>
+</body>
+</html>

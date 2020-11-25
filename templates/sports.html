@@ -1,0 +1,297 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<title>EVENTCON</title>
+	  <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link href="https://fonts.googleapis.com/css?family=Archivo Black"  rel='stylesheet'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       <link href="https://fonts.googleapis.com/css2?family=Asap:wght@500&display=swap" rel="stylesheet">
+      <script src="{% static 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js' %}"></script>
+      <script src="{% static 'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js' %}"></script>
+      <style>
+            body{
+                  background-color: #0f4c75;
+            }
+            /* Heading of page*/
+            h2{
+                  text-align: center;
+                  font-family: 'Libre Baskerville', serif;
+                  color: white;
+                  margin-top: 50px;
+            }
+            /* Photo*/
+            #club-photo:hover,#committee:hover{
+                  box-shadow: 0px 3px 5px 3px #cccccc;
+            }
+            #club-photol{
+
+                  float: left;
+                  margin-top: 35px;
+                  background-position: center;
+                  margin-left: 20px;
+                  margin-bottom: 25px;
+                  margin-right: 300px;
+                  position: relative;
+                  border: 5px solid #f08a5d;
+                  overflow: hidden;
+                  border-radius: 25px;
+
+            }
+            #club-photor{
+
+                  float: right;
+                  margin-top: 35px;
+                  background-position: center;
+                  margin-left: 10px;
+                  margin-bottom: 25px;
+                  margin-right: 100px;
+                  position: relative;
+                  border: 5px solid #f08a5d;
+                  overflow: hidden;
+                  border-radius: 25px;
+            }
+
+            /* Info.*/
+            p{
+                  float: left;
+                  /*color: #bbe1fa;*/
+                  color: #000;
+                  font-size: 1.1em;
+                  margin-top: 20px;
+                  font-family: 'Asap', sans-serif;
+            }
+            /* Club name only */
+            h4{
+               color: #f4ea8e;
+               margin-top: 50px;
+
+            }
+            /* Entry fees only */
+            span{
+                  color: #f4ea8e;
+                  font-size: 0.7em;
+                  line-height: 1.8;
+            }
+            #committee{
+                  background-color: #24a19c;
+                  margin-top: 50px;
+                  border: 5px solid #f08a5d;
+                  overflow: hidden;
+                  border-radius: 25px;
+                  padding: 20px;
+            }
+            body,h1,h2,h3,h4,h5,h6 {
+  font-family: "Raleway", sans-serif}
+
+body, html {
+  height: 100%;
+  line-height: 1.8;
+}
+
+
+.w3-bar .w3-button {
+  padding: 12px;
+}
+
+/* The actual content */
+.content {
+  padding: 20px 30px;
+  background-color: gray;
+  position: relative;
+  border-radius: 6px;
+}
+           /* Media Queries */
+            @media(min-width: 1200px)
+            {
+            }
+            @media(min-width: 992px) and (max-width: 1199px){
+
+                #committee{
+
+                         font-size: 1.1em;
+                         font-family: 'Asap', sans-serif;
+                  }
+
+            }
+            @media(min-width: 768px) and (max-width: 991px)
+            {
+
+                  #committee{
+
+                         font-size: 1.1em;
+                         font-family: 'Asap', sans-serif;
+                  }
+            }
+            @media(max-width: 767px){
+
+                   #committee{
+                        text-align: center;
+                        font-size: 1.1em;
+                         font-family: 'Asap', sans-serif;
+                  }
+                }
+                  
+                  
+      </style>
+</head>
+<body>
+  <!-- Navbar (sit on top) -->
+<div class="w3-top" >
+  <div class="w3-bar w3-white w3-card" id="myNavbar" style="min-height: 75px; padding-top: 12px;">
+    <a href="#home" class="w3-bar-item w3-btn"style="font-size: 150%; padding-top: 10px;">EVENTCON 2020</a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right " style="font-size: 125%">
+      <a href="#" class="w3-bar-item w3-btn"><i class="fa fa-home"></i> HOME</a>
+      <a href="{% url 'about' %}" class="w3-bar-item w3-btn"><i class='fa fa-exclamation-circle'></i> ABOUT</a>
+      <a href="#" class="w3-bar-item w3-btn"><i class="fa fa-th-large"></i> EVENTS</a>
+      <div class="w3-dropdown-hover">
+        <button class="w3-btn"> CATEGORIES
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+          <a href="{% url 'department' %}" class="w3-bar-item w3-btn">Departmental Events</a>
+          <a href="{% url 'cultural' %}" class="w3-bar-item w3-btn">Cultural Fests</a>
+          <a href="{% url 'sports' %}" class="w3-bar-item w3-btn">Sports Events</a>
+          <a href="{% url 'clubs' %}" class="w3-bar-item w3-btn">Clubs and Committees</a>
+          <a href="#" class="w3-bar-item w3-btn">Workshops and Webinars</a>
+        </div>
+      </div>
+      {% if user.is_authenticated %}
+      <a href = "logout" class="w3-bar-item w3-btn"><i class="fa fa-envelope">Logout</a>
+      {% else %}
+      <a href="{% url 'signin' %}" class="w3-bar-item w3-btn"><i class="fa fa-envelope"></i> LOGIN</a>
+      {% endif %}
+    </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="{% static 'javascript:void(0)' %}" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+  <a href="#home" onclick="w3_close()" class="w3-bar-item w3-button">HOME</a>
+  <a href="{% url 'about' %}" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+  <a href="#events" onclick="w3_close()" class="w3-bar-item w3-button">EVENTS</a>
+  <a href="#categories" onclick="w3_close()" class="w3-bar-item w3-button">CATEGORIES</a>
+  <a href="{% url 'signin' %}" onclick="w3_close()" class="w3-bar-item w3-button">LOGIN</a>
+</nav>
+      <h2>SPORTS</h2>
+      <div class = "container">
+        <div class = "row" id = "committee">
+            <div class = "col-md-4 col-sm-6 hidden-xs">
+                 <div id = "club-photol">
+                   <img src = "{% static 'images\chess.jpg' %}" class="responsive" height="190px" width="270px">
+                 </div>
+            </div>
+             <h4>CHESS</h4>
+             <p class="hidden-sm hidden-xs">
+                 STUDENT COORDINATORS:<br>1.Anand Pathak<br>2.Omkar Beri<span><br>
+                *Entry fees: 10/-</span>
+             </p>
+                <span class = "hidden-md hidden-lg id" style="color: #000;">TALK IS CHEAP! SHOW ME THE CODE<span style="color: #f4ea8e; "> Coding Competion</span>
+                </span>
+        </div>
+         <div class = "row" id = "committee">
+             <div class = "col-md-8 col-sm-6">
+             <h4>BADMINTON</h4>
+             <p class="hidden-sm hidden-xs">
+                 STUDENT COORDINATORS:<br>1.Parijat Yeole<br>2.Vedant Deshmukh
+                 <span><br>*Entry fees:<br>Rs.25/- Singles<br>Rs.50/- Doubles<br>Rs.50/- Mix Doubles<br></span>
+               </p>
+
+               </div>
+                   <div id = "club-photor" class = "hidden-xs">
+                 <img src = "{% static 'images\badminton.jpg' %}" height="170px" width="250px" class="responsive"></div>
+            </div>
+
+             <div class = "row" id = "committee">
+            <div class = "col-md-4 col-sm-6 hidden-xs">
+                 <div id = "club-photol">
+                   <img src = "{% static 'images\carrom.jpg' %}" class="responsive">
+                 </div>
+            </div>
+             <h4 >CARROM</h4>
+             <p class="hidden-sm hidden-xs">
+              STUDENT COORDINATORS:<br>1.Ankita Shahane<br>2.Viraj Mutha
+                 <span><br>*Entry fees:<br>Rs.15/- Singles<br>Rs.30/- Doubles<br>Rs.30/- Mix Doubles<br>
+             </p>
+        </div>
+
+        <div class = "row" id = "committee">
+             <div class = "col-md-8 col-sm-6">
+             <h4 >CRICKET</h4>
+             <p class="hidden-sm hidden-xs">
+                STUDENT COORDINATORS:<br>1.Harshad Raut<br>2.Yash Avhad
+             </p>
+
+               </div>
+                   <div id = "club-photor" class = "hidden-xs">
+                 <img src = "{% static 'images\cricket.jpg' %}" class="responsive" height="170px" width="250px"></div>
+            </div>
+
+          <div class = "row" id = "committee">
+            <div class = "col-md-4 col-sm-6 hidden-xs">
+                 <div id = "club-photol">
+                   <img src = "{% static 'images\football.jpg' %}" class="responsive">
+                 </div>
+            </div>
+             <h4 >FOOTBALL</h4>
+             <p class="hidden-sm hidden-xs">
+              STUDENT COORDINATORS:<br>1.Sanket Pawar<br>2.Tejas Patil
+             </p>
+
+        </div>
+        <div class = "row" id = "committee">
+             <div class = "col-md-8 col-sm-6">
+             <h4 >TABLE TENNIS</h4>
+             <p class="hidden-sm hidden-xs">
+                STUDENT COORDINATORS:<br>1.Jayesh Mahakal<br>2.Mitesh Patil
+                 <span><br>*Entry fees:<br>Rs.15/- Singles<br>Rs.30/- Doubles<br>Rs.30/- Mix Doubles<br></span>
+              </p>
+
+               </div>
+                   <div id = "club-photor" class = "hidden-xs">
+                 <img src = "{% static 'images\tennis.jpg' %}" class="responsive" height="170px" width="250px"></div>
+            </div>
+
+
+
+        <div class = "row" id = "committee">
+            <div class = "col-md-4 col-sm-6 hidden-xs">
+                 <div id = "club-photol">
+                   <img src = "{% static 'images\basketball.jpg' %}" height="170px" width="250px" class="responsive">
+                 </div>
+            </div>
+             <h4 >BASKETBALL</h4>
+             <p class="hidden-sm hidden-xs">
+                STUDENT COORDINATORS:<br>1.Shubham Pawar<br>2.Vinay Kannor
+             </p>
+        </div>
+
+         <br>
+         <br>
+
+
+
+</body>
+</html>
