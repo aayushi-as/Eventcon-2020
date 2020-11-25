@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.models import User,auth
+from .models import Student
 
 # Create your views here.
 def home(request):
@@ -33,12 +34,17 @@ def login(request):
         firstname = request.POST['firstname']
         lastname = request.POST['lastname']
         email = request.POST['email']
+        year = int(request.POST['year'])
+        department = request.POST['department']
         username = request.POST['username']
         password1 = request.POST['password']
         password2 = request.POST['re_password']
         if password1 == password2:
             user  = User.objects.create_user(username = username,password = password1,email=email,first_name = firstname,last_name = lastname)
             user.save()
+            stud = Student(first_name=firstname,last_name=lastname,email_id=email,branch=department,year=year)
+            stud.save()
+           
 		    #print("User created")
         return redirect('/')
     else:
@@ -54,7 +60,7 @@ def validate(request):
     user = auth.authenticate(username = username,password = password)
     if user is not None:
         auth.login(request,user)
-        return redirect('/')
+        return render(request,'template.html')
     else:
         messages.info(request,'invalid')
         return redirect('signin')       
@@ -62,3 +68,12 @@ def validate(request):
 def logout(request):
 	auth.logout(request)
 	return redirect('/')               
+
+def userdetails(request):
+    return render(request,'user1.html')   
+
+def notifications(request):
+    return render(request,'notifications1.html')  
+
+def table(request):
+    return render(request,'table.html')       

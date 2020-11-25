@@ -30,6 +30,9 @@ urlpatterns = [
     path('register/',views.register,name='register'),
     path('register/login',views.login,name='login'),
     path('signin/',views.signin,name='signin'),
+    path('signin/userdetails',views.userdetails,name='userdetails'),
+    path('signin/notifications',views.notifications,name='notifications'),
+    path('signin/table',views.table,name='table'),
     path('signin/validate',views.validate,name='validate'),
     path('logout',views.logout,name='logout')
 ]

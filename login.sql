@@ -1,7 +1,20 @@
 create database login;
 use login;
-create table Student(student_id int primary key auto_increment,first_name varchar(50),last_name varchar(50),email_id varchar(50),password varchar(50),branch varchar(30),year date);
+show tables;
+create table events_student(student_id int primary key auto_increment,
+                     first_name varchar(50),
+                     last_name varchar(50),
+                     email_id varchar(50),
+                     branch varchar(30),
+                     year int);
 drop table Student;
+drop table Event;
+drop table Participates;
+drop table Admin;
+drop table Sponsorer;
+drop table Departmental;
+drop table Cultural;
+drop table Organized_by;
 create table Event(event_id int primary key auto_increment,event_name varchar(50),R_fees float4,dates DATETIME,venue varchar(50),details varchar(40),time DATETIME);
 drop table Event;
 create table Participates(student_id int,
@@ -37,5 +50,8 @@ create table Cultural(cultural_id int primary key auto_increment,
  create table Organized_by(sponser_id int primary key,
                           event_id int,
                           foreign key(sponser_id) references Sponser(sponser_id),foreign key(event_id) references event(event_id));                    
-                   
 
+  describe Student;                 
+
+select * from events_student;
+drop table events_student;
