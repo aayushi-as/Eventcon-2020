@@ -1,5 +1,5 @@
 {% load static %}
-
+{% static "images" as baseUrl %}
 <!DOCTYPE html>
 <html lang = "en">
 <head>
@@ -197,7 +197,37 @@ body, html {
 </nav>
       <h2>SPORTS</h2>
       <div class = "container">
+        {% for i in sport %}
+        {% if forloop.counter|divisibleby:2 %}
         <div class = "row" id = "committee">
+            <div class = "col-md-4 col-sm-6 hidden-xs">
+                 <div id = "club-photol">
+                   <img src = "{{baseUrl}}/{{i.event_poster}}" class="responsive" height="190px" width="270px">
+                 </div>
+            </div>
+             <h4>{{i.sports_name}}</h4>
+             <p class="hidden-sm hidden-xs">
+                 {{i.details}}<span><br>
+                {{i.venue}}<br>{{i.r_fees}}</span>
+             </p>
+
+        </div>
+        {% else %}
+         <div class = "row" id = "committee">
+             <div class = "col-md-8 col-sm-6">
+             <h4>{{i.sports_name}}</h4>
+             <p class="hidden-sm hidden-xs">
+              {{i.details}}
+                 <span><br>{{i.venue}}<br>{{i.r_fees}}</span>
+               </p>
+
+               </div>
+                   <div id = "club-photor" class = "hidden-xs">
+                 <img src = "{{baseUrl}}/{{i.event_poster}}" height="170px" width="250px" class="responsive"></div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        <!--<div class = "row" id = "committee">
             <div class = "col-md-4 col-sm-6 hidden-xs">
                  <div id = "club-photol">
                    <img src = "{% static 'images\chess.jpg' %}" class="responsive" height="190px" width="270px">
@@ -289,7 +319,8 @@ body, html {
         </div>
 
          <br>
-         <br>
+         <br>-->
+         </div>
 
 
 

@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.models import User,auth
-from .models import Student
+from .models import Student,Cultural,Sports,event,Dept,Departmental
 
 # Create your views here.
 def home(request):
@@ -12,16 +12,22 @@ def about(request):
     return render(request,'about.html')
 
 def sports(request):
-    return render(request,'sports.html')
+    sport = Sports.objects.all()
+    return render(request,'sports.html',{'sport':sport})
 
 def clubs(request):
     return render(request,'clubs.html')
 
 def cultural(request):
-    return render(request,'cultural.html')
+    
+
+    event_list2 = Cultural.objects.all()
+    return render(request,'cultural.html',{'event_list2':event_list2})
 
 def department(request):
-    return render(request,'department.html')
+    dept_names = Dept.objects.all()
+    dept_events = Departmental.objects.all()
+    return render(request,'department.html',{'dept_names':dept_names})
 
 def equinox1(request):
     return render(request,'equinox1.html')

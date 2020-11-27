@@ -1,6 +1,5 @@
 {% load static %}
-
-
+{% static "images" as baseUrl %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -102,15 +101,16 @@ body, html {
       </div>
     <!-- ---------------------Department Image Portfolio--------------------------- -->
     <div class="row">
+        {% for i in dept_names %}
         <div class="column">
             <div class="content">
-                <img src="{% static './images/Logo/Equinox.jpg' %}" alt="Equinox Logo" style="width:100%" data-toggle="modal" data-target="#Equinox_Modal">
-                <h3>EQUINOX</h3>
-                <h4>Computer Department</h4>
+                <img src="{{baseUrl}}/{{i.event_poster}}" alt="Equinox Logo" style="width:100%" data-toggle="modal" data-target="#Equinox_Modal">
+                <h3>{{i.dept_event_name}}</h3>
+                <h4>{{i.dept_name}} Department</h4>
             </div>
         </div>
-
-        <div class="column">
+        {% endfor %}
+       <!-- <div class="column">
             <div class="content">
                 <img src="{% static './images/Logo/Invasion.jpg' %}" alt="Invasion_Logo" style="width:100%" data-toggle="modal" data-target="#Invasion_Modal">
                 <h3>INVASION</h3>
@@ -164,7 +164,7 @@ body, html {
                 <h3>IET EXPO</h3>
                 <h4>Electrical Department</h4>
             </div>
-        </div>
+        </div>-->
     </div>
     <!-- -----------------End of Department Image Portfolio------------------------ -->
 </div>

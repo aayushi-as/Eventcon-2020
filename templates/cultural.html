@@ -200,34 +200,40 @@ body, html {
 </nav>
 
       <h2>CULTURAL EVENTS</h2>
+      
       <div class = "container">
+        {% for i in event_list2 %}
+        {% if forloop.counter|divisibleby:2 %}
         <div class = "row" id = "committee">
             <div class = "col-md-4 col-sm-6 hidden-xs">
                  <div id = "club-photol">
-                   <img src = "{% static 'images\rangoli.jpg' %}" class="responsive" height="190px" width="270px">
+                   <img src = "{{baseUrl}}/{{i.event_poster}}" class="responsive" height="190px" width="270px">
                  </div>
             </div>
-             <h4>RANGOLI</h4>
+             <h4>{{i.culture_name}}</h4>
              <p class="hidden-sm hidden-xs">
-                 Inaguration of Maffick<span><br>
-                Venue: Ground floor, Mechanical dept, KKWIEER</span>
+                 {{i.details}}<span><br>
+                {{i.venue}}<br>{{i.r_fees}}</span>
              </p>
 
         </div>
+        {% else %}
          <div class = "row" id = "committee">
              <div class = "col-md-8 col-sm-6">
-             <h4>POSTER COMPETITION</h4>
+             <h4>{{i.culture_name}}</h4>
              <p class="hidden-sm hidden-xs">
-                 STUDENT COORDINATORS:<br>1.Parijat Yeole<br>2.Vedant Deshmukh
-                 <span><br>Venue:  Infront of the central Library</span>
+              {{i.details}}
+                 <span><br>{{i.venue}}<br>{{i.r_fees}}</span>
                </p>
 
                </div>
                    <div id = "club-photor" class = "hidden-xs">
-                 <img src = "{% static 'images\poster.jpg' %}" height="170px" width="250px" class="responsive"></div>
+                 <img src = "{{baseUrl}}/{{i.event_poster}}" height="170px" width="250px" class="responsive"></div>
             </div>
+            {% endif %}
+            {% endfor %}
 
-             <div class = "row" id = "committee">
+            <!-- <div class = "row" id = "committee">
             <div class = "col-md-4 col-sm-6 hidden-xs">
                  <div id = "club-photol">
                    <img src = "{% static 'images\elocution.jpg' %}" class="responsive">
@@ -291,11 +297,11 @@ body, html {
                 STUDENT COORDINATORS:<br>1.Shubham Pawar<br>2.Vinay Kannor
                 <span><br>Venue:  Pendol(On Playground), KKWIEER</span>
              </p>
-        </div>
+        </div>-->
 
          <br>
          <br>
-
+      </div>
 
 
 </body>
