@@ -2,7 +2,26 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.models import User,auth
+from django.db import connection
 from .models import Student,Cultural,Sports,event,Dept,Departmental
+
+global studentID
+
+global authUserName 
+
+def getAuthUserName():
+    return globals()['authUserName']
+
+def setAuthUserName (name):
+    globals()['authUserName'] = name
+
+def getStudentId():
+    return globals()['studentID']
+
+def setStudentId(id):
+    globals()['studentID'] = id
+    
+setStudentId(-1)
 
 # Create your views here.
 def home(request):
@@ -19,14 +38,12 @@ def clubs(request):
     return render(request,'clubs.html')
 
 def cultural(request):
-    
-
     event_list2 = Cultural.objects.all()
     return render(request,'cultural.html',{'event_list2':event_list2})
 
 def department(request):
     dept_names = Dept.objects.all()
-    dept_events = Departmental.objects.all()
+    # dept_events = Departmental.objects.all()
     return render(request,'department.html',{'dept_names':dept_names})
 
 def equinox1(request):
@@ -66,20 +83,128 @@ def validate(request):
     user = auth.authenticate(username = username,password = password)
     if user is not None:
         auth.login(request,user)
-        return render(request,'template.html')
+        setAuthUserName(user.username)
+        cur = connection.cursor()
+        cur.execute("SELECT student_id FROM events_student WHERE email_id = %s", [user.email])
+        id, = cur.fetchone()
+        setStudentId(id)
+        dashboard_results = getDashboardDetails(id, cur)
+        cur.close()
+        return render(request,'template.html', {'dashboard_results' :  dashboard_results, "username": getAuthUserName()})
     else:
-        messages.info(request,'invalid')
-        return redirect('signin')       
+        messages.info(request,'Invalid username or password')
+        return redirect('signin')      
+
+def getDashboardDetails(id, cur):
+    dashboard_results = []
+    query_eventIds = '''SELECT Participates.event_id, event_name 
+                        FROM Participates 
+                        JOIN events_event 
+                        ON Participates.event_id = events_event.event_id 
+                        WHERE student_id = %s'''
+    cur.execute(query_eventIds, [id])
+
+    cur1 = connection.cursor()
+    for event_id, major_event in cur.fetchall():
+        if major_event == 'cultural':
+            cur1.execute('''SELECT culture_name, venue, date_of_event 
+                            FROM events_cultural 
+                            WHERE event_id = %s''', [event_id])
+        elif major_event == 'sports':
+            cur1.execute('''SELECT sports_name, venue, date_of_event 
+                            FROM events_sports
+                            WHERE event_id = %s''', [event_id])
+        elif major_event == 'departmental':
+            cur1.execute('''SELECT subevent_name, venue, date_of_event 
+                            FROM events_departmental
+                            WHERE event_id = %s''', [event_id])
+        dashboard_results.append(cur1.fetchone())
+    cur1.close()
+    return dashboard_results
+
+def editProfile(request):
+    cur = connection.cursor()
+    cur.execute('''SELECT email_id, first_name, last_name, branch, year
+                   FROM events_student
+                   WHERE student_id = %s''', [getStudentId()])
+    email, firstname, lastname, branch, year = cur.fetchone()
+    cur.close()
+    cur1 = connection.cursor()
+    fname = request.POST['firstname']
+    lname = request.POST['lastname']
+    br = request.POST['department']
+    yr = int(request.POST['year'])
+    if fname != firstname:
+        cur1.execute('''UPDATE events_student
+                        SET first_name = %s
+                        WHERE student_id = %s''', [fname, getStudentId()])
+        cur2 = connection.cursor()
+        cur2.execute('''UPDATE auth_user
+                        SET first_name = %s
+                        WHERE email = %s''', [fname, email])
+        cur2.close()
+    if lname != lastname:
+        cur1.execute('''UPDATE events_student
+                        SET last_name = %s
+                        WHERE student_id = %s''', [lname, getStudentId()])
+        cur2 = connection.cursor()
+        cur2.execute('''UPDATE auth_user
+                        SET last_name = %s
+                        WHERE email = %s''', [lname, email])
+        cur2.close()
+    if br != branch:
+        cur1.execute('''UPDATE events_student
+                        SET branch = %s
+                        WHERE student_id = %s''', [br, getStudentId()])
+    if yr != year:
+        cur1.execute('''UPDATE events_student
+                        SET year = %s
+                        WHERE student_id = %s''', [int(yr), getStudentId()])
+    cur1.close()
+
+    return userdetails(request)
 		   	
 def logout(request):
 	auth.logout(request)
 	return redirect('/')               
 
 def userdetails(request):
-    return render(request,'user1.html')   
+    cur = connection.cursor()
+    cur.execute('''SELECT email_id, first_name, last_name, branch, year
+                   FROM events_student
+                   WHERE student_id = %s''', [getStudentId()])
+    profileResults = cur.fetchone()
+    cur.close()
+    return render(request,'user1.html', {'profileResults' : profileResults, "username": getAuthUserName()})   
 
 def notifications(request):
-    return render(request,'notifications1.html')  
+    return render(request,'notifications1.html', {"username": getAuthUserName()})  
 
 def table(request):
-    return render(request,'table.html')       
+    cur = connection.cursor()
+    summary_results = []
+    query_eventIds = '''SELECT Participates.event_id, event_name 
+                        FROM Participates 
+                        JOIN events_event 
+                        ON Participates.event_id = events_event.event_id 
+                        WHERE student_id = %s'''
+    cur.execute(query_eventIds, [getStudentId()])
+
+    cur1 = connection.cursor()
+    for event_id, major_event in cur.fetchall():
+        if major_event == 'cultural':
+            cur1.execute('''SELECT culture_name, date_of_event, r_fees
+                            FROM events_cultural 
+                            WHERE event_id = %s''', [event_id])
+        elif major_event == 'sports':
+            cur1.execute('''SELECT sports_name, date_of_event, r_fees
+                            FROM events_sports
+                            WHERE event_id = %s''', [event_id])
+        elif major_event == 'departmental':
+            cur1.execute('''SELECT subevent_name, date_of_event, r_fees
+                            FROM events_departmental
+                            WHERE event_id = %s''', [event_id])
+        summary_results.append(cur1.fetchone())
+    cur1.close()
+
+    return render(request,'table.html', {'summary_results': summary_results , "username": getAuthUserName()})       

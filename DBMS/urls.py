@@ -34,5 +34,6 @@ urlpatterns = [
     path('signin/notifications',views.notifications,name='notifications'),
     path('signin/table',views.table,name='table'),
     path('signin/validate',views.validate,name='validate'),
-    path('logout',views.logout,name='logout')
+    path('logout',views.logout,name='logout'),
+    path('signin/editProfile', views.editProfile, name="editProfile")
 ]

@@ -212,39 +212,39 @@ body {
 }
 
 /* ---------------------FOOTER------------------------- */
-footer{
+/* footer{
   background-color:#DFDECA;
   text-align: center;
   font-size:1.5em;
-}
+} */
 
 /* Create three equal columns that floats next to each other */
-.column-footer {
+/* .column-footer {
   float: left;
   width: 33.33%;
   padding: 10px;
   height: 400px;
-}
+} */
 
 /* Clear floats after the columns */
-.row-footer:after {
+/* .row-footer:after {
   content: "";
   display: table;
   clear: both;
-}
+} */
 
-#tohover:hover{
+/* #tohover:hover{
   background-color: #9BA8A8;
-}
+} */
 
-.fa:hover {
+/* .fa:hover {
   opacity: 0.7;
-} 
+}  */
 
 /* Media Queries*/
-@media screen and (max-width: 990px) {
+/* @media screen and (max-width: 990px) {
   .column-footer{
     width: 100%;
 
   }
-} 
+}  */

@@ -7,7 +7,7 @@ create table events_student(student_id int primary key auto_increment,
                      email_id varchar(50),
                      branch varchar(30),
                      year int);
-drop table Student;
+drop table events_student;
 drop table events_event;
 drop table Participates;
 drop table sponser;
@@ -15,7 +15,9 @@ drop table events_dept;
 drop table events_departmental;
 drop table events_cultural;
 drop table Organized_by;
+drop table events_sports;
 create table events_event(event_id int primary key auto_increment);
+alter table events_event add column event_name varchar(30);
 drop table Event;
 create table Participates(student_id int,
                           event_id int ,
@@ -68,11 +70,11 @@ create table events_sports(event_id int primary key,
                       foreign key(event_id) references events_event(event_id) on delete cascade
                       );                        
                       
-
+update events_event set event_name = 'departmental' where event_id between 15 and 23;
 
                  
 
-select * from events_student;
+select * from events_event;
 drop table events_student;
 insert into events_event values(1);
 insert into events_event values(2);
@@ -128,7 +130,18 @@ insert into events_dept values(206,'Mechanical','Mecheaven','Meacheaven.jpg');
 insert into events_dept values(207,'IT','Itiazaa','nature.jpeg');
 insert into events_dept values(208,'Electrical','IET Expo','IET.jpg');
 
-insert into Participates values(1,1);
+insert into Participates values(1,10);
+insert into Participates values(3,12);
+insert into Participates values(3,7);
+insert into Participates values(3,8);
+insert into Participates values(3,20);
+insert into Participates values(3,14);
+insert into Participates values(3,22);
+insert into Participates values(3,5);
+insert into Participates values(3,21);
+insert into Participates values(3,4);
+insert into Participates values(3,1);
+
 
 describe events_cultural;
 select * from events_event;
@@ -136,8 +149,12 @@ select * from events_cultural;
 select * from events_sports;
 select * from events_dept;
 select * from events_departmental;
+select * from auth_user;
+select * from events_student;
+select * from Participates;
 
-delete from Participates where student_id = 1;
+
+delete from auth_user where id = 7;
 delete from event where event_id = 1;
 select * from events_event;
 alter table events_cultural add column event_poster varchar(50);
@@ -172,4 +189,19 @@ insert into Participates values(1,10);
 select * from Dept;
 select * from Departmental;
 select * from Participates;
+select * from events_sports;
 delete from events_event where event_id=15;
+
+select Participates.event_id, event_name
+from Participates
+join events_event
+on Participates.event_id = events_event.event_id
+where student_id = 3;
+
+select sports_name, venue, date_of_event from events_sports
+where event_id = 8;
+
+select subevent_name, venue, date_of_event
+from events_departmental
+where event_id = 20;
+
