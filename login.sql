@@ -267,6 +267,14 @@ insert into events_departmental values(54,202,'PPT Competition',50,'2021-03-25 1
 insert into events_departmental values(55,202,'Save the Eggstronaut',50,'2021-03-25 01:00:00','Production Department','Save your egg and become eggstonaut','save.png');
 insert into events_departmental values(56,202,'Snookball',50,'2021-03-25 02:00:00','Production Department','Play to win','snookball.png');
 
+insert into events_departmental values(57,203,'Make your Quibbler',50,'2021-03-25 10:00:00','ENTC Department','Poster Competition','poster.jpg');
+insert into events_departmental values(58,203,'Show your Patronous',50,'2021-03-25 11:00:00','ENTC Department','Photography Competition','lens.jpg');
+insert into events_departmental values(59,203,'Brew your Potion',50,'2021-03-25 12:00:00','ENTC Department','Project Competition','board.jpg');
+insert into events_departmental values(60,203,'Crack the Owls',50,'2021-03-25 01:00:00','ENTC Department','Coding Competition','source_code.jpg');
+
+
+
+
 
 delete from events_departmental where event_id = 52;
 select * from events_departmental where event_id = 37;
