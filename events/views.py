@@ -47,11 +47,99 @@ def department(request):
     return render(request,'department.html',{'dept_names':dept_names})
 
 def equinox1(request):
-    return render(request,'equinox1.html')
+    #dept_events = Departmental.objects.all()
+    if request.GET.get('equi') == 'Details':
+        d_id = 201
+        
+        cursors = connection.cursor()
+        cursors.execute('''SELECT subevent_name,r_fees,date_of_event,details,event_poster,venue
+                            FROM events_departmental
+                            WHERE dept_id = %s''', [d_id])                    
+        dept_events = cursors.fetchall() 
+        #dept_events = list(record)                   
+        return render(request,'equinox1.html',{'dept_events':dept_events})
+    elif request.GET.get('invasion') == 'Details':
+        d_id = 202
+        
+        cursors = connection.cursor()
+        cursors.execute('''SELECT subevent_name,r_fees,date_of_event,details,event_poster,venue
+                            FROM events_departmental
+                            WHERE dept_id = %s''', [d_id])                    
+        dept_events = cursors.fetchall() 
+        #dept_events = list(record)                   
+        return render(request,'equinox1.html',{'dept_events':dept_events}) 
+
+    elif request.GET.get('tele') == 'Details':
+        d_id = 203
+        
+        cursors = connection.cursor()
+        cursors.execute('''SELECT subevent_name,r_fees,date_of_event,details,event_poster,venue
+                            FROM events_departmental
+                            WHERE dept_id = %s''', [d_id])                    
+        dept_events = cursors.fetchall() 
+        #dept_events = list(record)                   
+        return render(request,'equinox1.html',{'dept_events':dept_events})  
+    elif request.GET.get('civil') == 'Details':
+        d_id = 204
+       
+        cursors = connection.cursor()
+        cursors.execute('''SELECT subevent_name,r_fees,date_of_event,details,event_poster,venue
+                            FROM events_departmental
+                            WHERE dept_id = %s''', [d_id])                    
+        dept_events = cursors.fetchall() 
+        #dept_events = list(record)                   
+        return render(request,'equinox1.html',{'dept_events':dept_events})        
+             
+    elif request.GET.get('chem') == 'More':
+        d_id = 205
+        
+        cursors1 = connection.cursor()
+        cursors1.execute('''SELECT subevent_name,r_fees,date_of_event,details,event_poster,venue
+                            FROM events_departmental
+                            WHERE dept_id = %s''', [d_id])                    
+        dept_events = cursors1.fetchall() 
+        #dept_events = list(record)                   
+        return render(request,'equinox1.html',{'dept_events':dept_events})
+    elif request.GET.get('mech') == 'Details':
+        d_id = 206
+        
+        cursors = connection.cursor()
+        cursors.execute('''SELECT subevent_name,r_fees,date_of_event,details,event_poster,venue
+                            FROM events_departmental
+                            WHERE dept_id = %s''', [d_id])                    
+        dept_events = cursors.fetchall() 
+        #dept_events = list(record)                   
+        return render(request,'equinox1.html',{'dept_events':dept_events})  
+
+    elif request.GET.get('it') == 'Details':
+        d_id = 207
+        
+        cursors = connection.cursor()
+        cursors.execute('''SELECT subevent_name,r_fees,date_of_event,details,event_poster,venue
+                            FROM events_departmental
+                            WHERE dept_id = %s''', [d_id])                    
+        dept_events = cursors.fetchall() 
+        #dept_events = list(record)                   
+        return render(request,'equinox1.html',{'dept_events':dept_events})          
+    
 
 def register(request):
    return render(request,'register.html')
-   
+
+def notifications1(request):
+    return notifications(request)
+       
+
+def template(request):
+    id = getStudentId()
+    cur = connection.cursor()
+    cur.execute('''SELECT event_id
+                            FROM Participates
+                            WHERE student_id = %s''', [id])
+    dashboard_results = getDashboardDetails(id,cur)
+    
+    return render(request,'template.html',{'dashboard_results':dashboard_results,"username": getAuthUserName()})  
+
 def login(request):
     if request.method == 'POST':
         firstname = request.POST['firstname']
@@ -122,6 +210,9 @@ def getDashboardDetails(id, cur):
     cur1.close()
     return dashboard_results
 
+def user1(request):
+    return userdetails(request)
+
 def editProfile(request):
     cur = connection.cursor()
     cur.execute('''SELECT email_id, first_name, last_name, branch, year
@@ -179,6 +270,12 @@ def userdetails(request):
 
 def notifications(request):
     return render(request,'notifications1.html', {"username": getAuthUserName()})  
+
+def table1(request):
+    return table(request)
+
+def afterlogin(request):
+    return render(request,'afterlogin.html')        
 
 def table(request):
     cur = connection.cursor()

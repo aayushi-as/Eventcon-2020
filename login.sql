@@ -14,7 +14,7 @@ drop table sponser;
 drop table events_dept;
 drop table events_departmental;
 drop table events_cultural;
-drop table Organized_by;
+drop table Organized_by;	
 drop table events_sports;
 create table events_event(event_id int primary key auto_increment);
 alter table events_event add column event_name varchar(30);
@@ -70,12 +70,13 @@ create table events_sports(event_id int primary key,
                       foreign key(event_id) references events_event(event_id) on delete cascade
                       );                        
                       
-update events_event set event_name = 'departmental' where event_id between 15 and 23;
+update events_event set event_name = 'departmental' where event_id between 24 and 28;
 
                  
 
 select * from events_event;
 drop table events_student;
+
 insert into events_event values(1);
 insert into events_event values(2);
 insert into events_event values(3);
@@ -104,6 +105,38 @@ insert into events_event values(25);
 insert into events_event values(26);
 insert into events_event values(27);
 insert into events_event values(28);
+insert into events_event values(29,'departmental');
+insert into events_event values(30,'departmental');
+insert into events_event values(31,'departmental');
+insert into events_event values(32,'departmental');
+insert into events_event values(33,'departmental');
+insert into events_event values(34,'departmental');
+insert into events_event values(35,'departmental');
+insert into events_event values(36,'departmental');
+insert into events_event values(37,'departmental');
+insert into events_event values(38,'departmental');
+insert into events_event values(39,'departmental');
+insert into events_event values(40,'departmental');
+insert into events_event values(41,'departmental');
+insert into events_event values(42,'departmental');
+insert into events_event values(43,'departmental');
+insert into events_event values(44,'departmental');
+insert into events_event values(45,'departmental');
+insert into events_event values(46,'departmental');
+insert into events_event values(47,'departmental');
+insert into events_event values(48,'departmental');
+insert into events_event values(49,'departmental');
+insert into events_event values(50,'departmental');
+insert into events_event values(51,'departmental');
+insert into events_event values(52,'departmental');
+insert into events_event values(53,'departmental');
+insert into events_event values(54,'departmental');
+insert into events_event values(55,'departmental');
+insert into events_event values(56,'departmental');
+insert into events_event values(57,'departmental');
+insert into events_event values(58,'departmental');
+insert into events_event values(59,'departmental');
+insert into events_event values(60,'departmental');
 
 insert into events_cultural values(1,'Rangoli Competition',50,'2020-12-30 14:02:02','Ground Floor,Mechanical Dept,KKWIEER','Inaugration of Maffick by this competition','rangoli.jpg');
 insert into events_cultural values(2,'Poster Competition',50,'2020-12-30 15:02:02','In front of Central Library','Student Co-ordinators:1.Parijat Yeole,2.Vedant Deshmukh','poster.jpg');
@@ -142,6 +175,9 @@ insert into Participates values(3,21);
 insert into Participates values(3,4);
 insert into Participates values(3,1);
 
+insert into Participates values(2,10);
+insert into Participates values(2,15);
+insert into Participates values(2,2);
 
 describe events_cultural;
 select * from events_event;
@@ -174,7 +210,7 @@ insert into events_departmental values(17,201,'Shutterbug',50,'2021-03-23 11:00:
 
 insert into events_departmental values(18,201,'Hackathon',50,'2021-03-23 12:00:00','Computer Department','OUTWITH.OUTPLAY.OUTLAST.ARE YOU NEXT GEEK SHERLOCK','hackathon.jpg');
 
-insert into events_departmental values(19,201,'Tech-Hunt',50,'2021-03-24 11:00:00','Computer Department','ARE YOU THE NEXT GEEK SHERLOCK?','tech_hunt.jpg');
+insert into events_departmental values(19,201,'Tech-Hunt',50,'2021-03-24 11:00:00','Computer Department','ARE YOU THE NEXT GEEK SHERLOCKs?','tech_hunt.jpg');
 
 insert into events_departmental values(20,201,'White Collar',50,'2021-03-24 12:00:00','Computer Department','BE SMART! BE INTERVIEW READY!','white_collar.jpg');
 
@@ -183,13 +219,66 @@ insert into events_departmental values(21,201,'Lekh Yaag',50,'2021-03-24 01:00:0
 insert into events_departmental values(22,201,'Genesis',50,'2021-03-24 02:00:00','Computer Department','EMPOWERED BY INNOVATION ','genesis.jpg');
 
 insert into events_departmental values(23,201,'Workshop on AR and VR',50,'2021-03-24 04:00:00','Computer Department',' SEE UNREAL THINGS HAPPEN!','ar_vr.jpg');
+insert into events_departmental values(24,205,'Salt Act',50,'2021-03-22 10:00:00','Chemical Department','To be experimental...','salt_act.png');
+
+insert into events_departmental values(25,205,'Placement Bizzare',50,'2021-03-22 11:00:00','Chemical Department','Simulating Recruitment...','bizzare.png');
+insert into events_departmental values(26,205,'Tech Paper',50,'2021-03-22 12:00:00','Chemical Department','Let your words radiate insight','tech_paper.png');
+delete from events_departmental where event_id = 26;
+insert into events_departmental values(27,205,'Gol Gappa Race',50,'2021-03-22 01:00:00','Chemical Department','Wana Chaat?Gimme a Lift','gol_gappa.png');
+insert into events_departmental values(28,205,'Chem O Race',50,'2021-03-22 02:00:00','Chemical Department','How strong is your Chemistry?','chem_o_race.png');
 
 
+insert into events_departmental values(29,204,'Bridge O Mania',50,'2021-03-21 10:00:00','Civil Department','National Level Event Competition','bridge_o_mania.png');
+
+insert into events_departmental values(30,204,'Tower Power',50,'2021-03-21 11:00:00','Civil Department','Build with us','tower_power.png');
+
+insert into events_departmental values(31,204,'Poster Making',50,'2021-03-21 12:00:00','Civil Department','Show your creativity','poster.jpg');
+
+insert into events_departmental values(32,204,'Snap Hunt',50,'2021-03-21 01:00:00','Civil Department','Photography Hunt','snap_hunt.png');
+
+insert into events_departmental values(33,204,'Cad Enza',50,'2021-03-21 02:00:00','Civil Department','Show your software skills','cad_enza.png');
+
+insert into events_departmental values(34,204,'Quiz',50,'2021-03-21 03:00:00','Civil Department','Can you crack it?','quiz.png');
+
+insert into events_departmental values(35,204,'Drama',50,'2021-03-21 10:00:00','Civil Department','Acting Talent','drama.png');
+
+insert into events_departmental values(36,204,'Fancy Bouyancy',50,'2021-03-21 04:00:00','Civil Department','How good are your basics?','fancy_bouyancy.png');
+
+insert into events_departmental values(37,206,'Art Motion',50,'2021-03-22 10:00:00','Mechanical Department','Dare to play with mechanism','art_motion.png');
+insert into events_departmental values(38,206,'Black Tye',50,'2021-03-22 11:00:00','Mechanical Department','Be Ready,Be Smart,Be Noticed','black_tye.png');
+insert into events_departmental values(39,206,'Box Cricket',50,'2021-03-22 12:00:00','Mechanical Department','Enleash your cricket skills','box_cricket.png');
+insert into events_departmental values(40,206,'Foos Ball',50,'2021-03-22 01:00:00','Mechanical Department','Winning is not everything!','foos_ball.png');
+insert into events_departmental values(41,206,'Gamers Arena',50,'2021-03-22 02:00:00','Mechanical Department','Stay Low,Move Fast,One shot,One kill','gamers_arena.png');
+insert into events_departmental values(42,206,'Hopipola',50,'2021-03-22 03:00:00','Mechanical Department','With new twist and new theme of Pubg','hoppipola.png');
+insert into events_departmental values(43,206,'Lathe War',50,'2021-03-22 04:00:00','Mechanical Department','Be Ready!','lathe_war.png');
+insert into events_departmental values(44,206,'Lazer Maze',50,'2021-03-22 10:00:00','Mechanical Department','Participate and Win','lazer_maze.png');
+insert into events_departmental values(45,206,'Picturesque',50,'2021-03-23 10:00:00','Mechanical Department','An upshot of light and time','picturesque.png');
+insert into events_departmental values(46,206,'Robo Race',50,'2021-03-22 11:00:00','Mechanical Department','Think about the end of the race','robo_race.png');
+insert into events_departmental values(47,206,'Treasure Hunt',50,'2021-03-22 10:00:00','Mechanical Department','Chase The Flame','treasure_hunt.png');
+
+insert into events_departmental values(48,207,'Snakes And Ladders',50,'2021-03-22 10:00:00','IT Department','Not on board but on ground','snake.png');
+insert into events_departmental values(49,207,'Attractive Photo',50,'2021-03-22 11:00:00','IT Department','Unofficial Instagram Contest','attract_photo.png');
+insert into events_departmental values(50,207,'FIFA',50,'2021-03-22 12:00:00','IT Department','Feel the game','fifa.png');
+insert into events_departmental values(51,207,'Foldoscope',50,'2021-03-22 01:00:00','IT Department','Origami Based Optical Microscope','foldoscope.png');
+
+insert into events_departmental values(52,202,'Logo Quiz',50,'2021-03-25 10:00:00','Production Department','We came,we quizzed,we conquered','logo_quiz.png');
+insert into events_departmental values(53,202,'Maniac',50,'2021-03-25 11:00:00','Production Department','Conquer the territory','maniac.png');
+insert into events_departmental values(54,202,'PPT Competition',50,'2021-03-25 12:00:00','Production Department','Combine innovative ideas','ppt_comp.png');
+insert into events_departmental values(55,202,'Save the Eggstronaut',50,'2021-03-25 01:00:00','Production Department','Save your egg and become eggstonaut','save.png');
+insert into events_departmental values(56,202,'Snookball',50,'2021-03-25 02:00:00','Production Department','Play to win','snookball.png');
+
+
+delete from events_departmental where event_id = 52;
+select * from events_departmental where event_id = 37;
 insert into Participates values(1,10);
+select subevent_name,r_fees,date_of_event,venue,details,event_poster from events_departmental where dept_id = 201;
 select * from Dept;
 select * from Departmental;
 select * from Participates;
 select * from events_sports;
+select * from events_event;
+select * from events_student;
+select * from auth_user;
 delete from events_event where event_id=15;
 
 select Participates.event_id, event_name
@@ -205,3 +294,9 @@ select subevent_name, venue, date_of_event
 from events_departmental
 where event_id = 20;
 
+SELECT event_id FROM Participates WHERE student_id = 3;
+SELECT Participates.event_id, event_name 
+                        FROM Participates 
+                        JOIN events_event 
+                        ON Participates.event_id = events_event.event_id 
+                        WHERE student_id = 3;

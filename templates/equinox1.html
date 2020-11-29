@@ -1,12 +1,18 @@
 {% load static %}
-
+{% static "images" as baseUrl %}
 <!DOCTYPE html>
 <html lang = "en">
 <head>
 	<title>EVENTCON</title>
 	  <meta charset="utf-8">
 		<meta charset="utf-8">
-			<meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+      <link href="https://fonts.googleapis.com/css?family=Archivo Black"  rel='stylesheet'>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 			<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet">
@@ -20,11 +26,10 @@
 			<script src="{% static 'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js' %}"></script>
       <style>
             body{
-                  background-color: #0f4c75;
+                  background-color: #080E2C;
             }
             /* Heading of page*/
             h2{
-                  text-align: center;
                   font-family: 'Libre Baskerville', serif;
                   color: white;
                   margin-top: 50px;
@@ -72,24 +77,44 @@
             }
             /* Club name only */
             h4{
-               color: #f4ea8e;
+               color: #000;
                margin-top: 50px;
 
             }
             /* Entry fees only */
             span{
-                  color: #f4ea8e;
+                  color: #000;
                   font-size: 0.7em;
                   line-height: 1.8;
             }
             #committee{
-                  background-color: #24a19c;
+                  background-color: #cfd1da;
                   margin-top: 50px;
                   border: 5px solid #f08a5d;
                   overflow: hidden;
                   border-radius: 25px;
                   padding: 20px;
             }
+            body,h1,h2,h3,h4,h5,h6 {
+  font-family: "Raleway", sans-serif}
+
+body, html {
+  height: 100%;
+  line-height: 1.8;
+}
+
+
+.w3-bar .w3-button {
+  padding: 12px;
+}
+
+/* The actual content */
+.content {
+  padding: 20px 30px;
+  background-color: gray;
+  position: relative;
+  border-radius: 6px;
+}
            /* Media Queries */
             @media(min-width: 1200px)
             {
@@ -120,226 +145,97 @@
                          font-family: 'Asap', sans-serif;
                   }
                 }
-                  footer{
-                     background-color: #333333;
-                     text-align: center;
-                  }
-
-                  /* Create three equal columns that floats next to each other */
-                  .column {
-                    float: left;
-                    width: 33.33%;
-                    padding: 10px;
-                    height: 350px; /* Should be removed. Only for demonstration */
-                   /* border: 15px solid #9BA8A8 ; */
-
-                    /*margin: 20px;*/
-                  }
-
-                  /* Clear floats after the columns */
-                  .row:after {
-                    content: "";
-                    display: table;
-                    clear: both;
-
-
-                  }
-                  #tohover:hover{
-                    background-color: #9BA8A8;
-                  }
-
-                  /* Gliff icons*/
-
-
-                  .fa {
-                    padding: 30px;
-                    font-size: 30px;
-                    width: 30px;
-                    text-align: center;
-                    text-decoration: none;
-                    margin: 5px 2px;
-                    border-radius: 50%;
-                  }
-                  .fa:hover {
-                      opacity: 0.7;
-                  }
-
-                  .fa-facebook {
-                    background: #3B5998;
-                    color: white;
-                  }
-                  .fa-twitter {
-                    background: #55ACEE;
-                    color: white;
-                  }
-                  .fa-linkedin {
-                    background: #007bb5;
-                    color: white;
-                  }
-                  .fa-instagram {
-                    background: #125688;
-                    color: white;
-                  }
-
-                  /* Media Queries*/
-                  @media screen and (max-width: 990px) {
-                    .column {
-                      width: 100%;
-
-                    }
-                  }
-                  }
+                
+                  
       </style>
 </head>
 <body>
-      <h2>EQUINOX</h2>
-      <div class = "container">
-        <div class = "row" id = "committee">
-            <div class = "col-md-4 col-sm-6 hidden-xs">
-                 <div id = "club-photol">
-                   <img src = "{% static 'images\source_code.jpg' %}" class="responsive">
-                 </div>
-            </div>
-             <h4>SOURCE CODE</h4>
-             <p class="hidden-sm hidden-xs">
-                 TALK IS CHEAP! SHOW ME THE CODE<br><span> Coding Competion</span>
-             </p>
-                <span class = "hidden-md hidden-lg id" style="color: #000;">TALK IS CHEAP! SHOW ME THE CODE<span style="color: #f4ea8e; "> Coding Competion</span>
-                </span>
+<!-- Navbar (sit on top) -->
+<div class="w3-top" >
+  <div class="w3-bar w3-white w3-card" id="myNavbar" style="min-height: 75px; padding-top: 12px;">
+    <a href="{% url 'home' %}" class="w3-bar-item w3-btn"style="font-size: 150%; padding-top: 10px;text-decoration: none;">EVENTCON 2020</a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right " style="font-size: 125%">
+      <a href="{% url 'home' %}" class="w3-bar-item w3-btn"style="text-decoration: none;"><i class="fa fa-home"></i> HOME</a>
+      <a href="{% url 'about' %}" class="w3-bar-item w3-btn"style="text-decoration: none;"><i class='fa fa-exclamation-circle'></i> ABOUT</a>
+      <a href="#" class="w3-bar-item w3-btn"style="text-decoration: none;"><i class="fa fa-th-large"></i> EVENTS</a>
+      <div class="w3-dropdown-hover">
+        <button class="w3-btn"> CATEGORIES
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+          <a href="{% url 'department' %}" class="w3-bar-item w3-btn"style="text-decoration: none;">Departmental Events</a>
+          <a href="{% url 'cultural' %}" class="w3-bar-item w3-btn"style="text-decoration: none;">Cultural Fests</a>
+          <a href="{% url 'sports' %}" class="w3-bar-item w3-btn"style="text-decoration: none;">Sports Events</a>
+          <a href="{% url 'clubs' %}" class="w3-bar-item w3-btn"style="text-decoration: none;">Clubs and Committees</a>
+          <a href="#" class="w3-bar-item w3-btn"style="text-decoration: none;">Workshops and Webinars</a>
         </div>
-         <div class = "row" id = "committee">
-             <div class = "col-md-8 col-sm-6">
-             <h4>INKSYNC</h4>
-             <p class="hidden-sm hidden-xs">
-                 WRITE INSIDE OUT.GIVE PEOPLE SOMETHING TO THINK ABOUT<br>
-                 <span> Blog Writing Competition.</span></p>
-                <span class = "hidden-md hidden-lg id" style="color: #000;">A post either in English or Marathi topic<br>Round 2</br>Selected students will enter final round which is a surprise round. <span style="color: #f4ea8e; "> * Entry fees : Rs.200 only.</span>
-                </span>
-               </div>
-                   <div id = "club-photor" class = "hidden-xs">
-                 <img src = "{% static 'images\inksync.jpg' %}" height="170px" width="250px" class="responsive"></div>
-            </div>
+      </div>
+     
+      {% if user.is_authenticated %}
+      <a href = "logout" class="w3-bar-item w3-btn"style="text-decoration: none;"><i class="fa fa-envelope">Logout</a>
+      {% else %}
+      <a href="{% url 'signin' %}" class="w3-bar-item w3-btn"style="text-decoration: none;"><i class="fa fa-envelope"></i> LOGIN</a>
+      {% endif %}
+      
+    </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
-             <div class = "row" id = "committee">
-            <div class = "col-md-4 col-sm-6 hidden-xs">
-                 <div id = "club-photol">
-                   <img src = "{% static 'images\shutterbug.jpg' %}" class="responsive">
-                 </div>
-            </div>
-             <h4 >SHUTTERBUG</h4>
-             <p class="hidden-sm hidden-xs">
-              CHANGE THE LENS, CHANGE THE STORY
-                 <span><br>
-                  Round 1<br>Something of yours<br>Round 2<br>Click the campus<br>Round 3<br>Click according to theme.<br>Entry Fees:50/</span>
-             </p>
-        </div>
-
-        <div class = "row" id = "committee">
-             <div class = "col-md-8 col-sm-6">
-             <h4 >TECH HUNT</h4>
-             <p class="hidden-sm hidden-xs">
-                ARE YOU THE NEXT GEEK SHERLOCK?
-
-             </p>
-
-               </div>
-                   <div id = "club-photor" class = "hidden-xs">
-                 <img src = "{% static 'images\tech_hunt.jpg' %}" class="responsive" height="170px" width="250px"></div>
-            </div>
-
-          <div class = "row" id = "committee">
-            <div class = "col-md-4 col-sm-6 hidden-xs">
-                 <div id = "club-photol">
-                   <img src = "{% static 'images\white_collar.jpg' %}" class="responsive">
-                 </div>
-            </div>
-             <h4 >WHITECOLLAR</h4>
-             <p class="hidden-sm hidden-xs">
-
-               BE SMART! BE INTERVIEW READY!
-                 <br><span> Round 1<br>Aptitude test<br>Round 2<br>Group discussion<br>Round 3<br>Personal Interview</span>
-             </p>
-
-        </div>
-        <div class = "row" id = "committee">
-             <div class = "col-md-8 col-sm-6">
-             <h4 >GENESIS</h4>
-             <p class="hidden-sm hidden-xs">
-                EMPOWERED BY INNOVATION <br><span>200/- team of 4 </span>
-              </p>
-
-               </div>
-                   <div id = "club-photor" class = "hidden-xs">
-                 <img src = "{% static 'images\genesis.jpg' %}" class="responsive" height="170px" width="250px"></div>
-            </div>
-
-
-
-        <div class = "row" id = "committee">
-            <div class = "col-md-4 col-sm-6 hidden-xs">
-                 <div id = "club-photol">
-                   <img src = "{% static 'images\hackathon.jpg' %}" height="170px" width="250px" class="responsive">
-                 </div>
-            </div>
-             <h4 >HACKATHON</h4>
-             <p class="hidden-sm hidden-xs">
-                OUTWITH.OUTPLAY.OUTLAST.ARE YOU NEXT GEEK SHERLOCK
-                  <br>
-             </p>
-        </div>
-
-         <div class = "row" id = "committee">
-             <div class = "col-md-8 col-sm-6">
-             <h4 >WORKSHOP ON AR & VR</h4>
-             <p class="hidden-sm hidden-xs">
-                 SEE UNREAL THINGS HAPPEN!
-                   <span> <br>
-                    Entry fees : Rs.200 only.</span>
-             </p>
-           </div>
-
-              <div id = "club-photor" class = "hidden-xs">
-                 <img src = "{% static 'images\ar_vr.jpg' %}" class="responsive" height="170px" width="250px"></div>
-            </div>
-      <br>
-      <br>
-
-
-<footer>
-  <div class="row">
-  <div class="column">
-    <h2>Programs</h2>
-    <p id="tohover">Technical Events</p>
-    <p id="tohover">Cultural Events</p>
-    <p id="tohover">Sports</p>
-    <p id="tohover">Webinars & Workshops</p>
-    <p id="tohover">Be a Sponsorer</p>
-  </div>
-
-  <div class="column">
-    <h2>Useful Links</h2>
-    <p id="tohover">Home</p>
-    <p id="tohover">About Us </p>
-    <p id="tohover">Departments</p>
-    <p id="tohover">Major Events</p>
-    <p id="tohover">FAQ's</p>
-    <p id="tohover">Help</p>
-    <p id="tohover">Site Map</p>
-  </div>
-
-  <div class="column">
-
-    <h2>Phone   <i class="fa fa-phone" style="font-size:28px;color:red"></i><i class="fa fa-envelope" style="font-size:48px;color:red"></i></h2>
-    <a href="#" class="fa fa-facebook"></a>
-    <a href="#" class="fa fa-twitter"></a>
-    <a href="#" class="fa fa-linkedin"></a>
-    <a href="#" class="fa fa-instagram"></a>
-    <p id="tohover">Subscribe Us!</p>
-
-<br>
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
   </div>
 </div>
-<p>&#169;Copyright@2020 All rights reserved</p>
-    </footer>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="{% static 'javascript:void(0)' %}" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+  <a href="{% url 'home' %}" onclick="w3_close()" class="w3-bar-item w3-button">HOME</a>
+  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+  <a href="#events" onclick="w3_close()" class="w3-bar-item w3-button">EVENTS</a>
+  <a href="#categories" onclick="w3_close()" class="w3-bar-item w3-button">CATEGORIES</a>
+  <a href="{% url 'signin' %}" onclick="w3_close()" class="w3-bar-item w3-button">LOGIN</a>
+</nav>
+
+
+      <h2 style="padding-top: 50px; text-align: center;"></h2>
+      <div class = "container">
+        {% for i in dept_events %}
+        {% if forloop.counter|divisibleby:2 %}
+        <div class = "row" id = "committee">
+            <div class = "col-md-4 col-sm-6 hidden-xs">
+                 <div id = "club-photol">
+                   <img src = "{{baseUrl}}/{{i.4}}" class="responsive" style = "height:170px; width:250px">
+                 </div>
+            </div>
+             <h2 style="color: black;">{{i.0}}</h2>
+             <p style="color: black;font-size: 1.2em;">
+                 <h3>{{i.3}}</h3><br><span style="font-size: 1.2em;">Venue : {{i.5}}</span><br>
+             </p>
+                <span style="color: #000; font-size: 1.2em;">Coming On : {{i.2}}<br><span style="color: #000000; "><h6>Rs. {{i.1}} only/-</h6></span>
+                </span>
+        </div>
+        {% else %}
+         <div class = "row" id = "committee">
+             <div class = "col-md-8 col-sm-6">
+             <h2 style="color: black;">{{i.0}}</h2>
+             <p style="color: black;font-size: 1.2em;">
+              <h3>{{i.3}}</h3><br>
+                 <span style="font-size: 1.2em;">Venue : {{i.5}}</span></p><br>
+                <span  style="color: #000; font-size: 1.2em;">Coming On : {{i.2}}<br><span style="color: #000000; "><h6>Rs. {{i.1}} only/-</h6></span>
+                </span>
+               </div>
+                   <div id = "club-photor" class = "hidden-xs">
+                 <img src = "{{baseUrl}}/{{i.4}}" style = "height:170px; width:250px" class="responsive"></div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            
+</div>
+{% if user.is_authenticated %}
+<button type="button" class="btn btn-danger" style="margin-top: 190px; margin-left: 600px; height: 70px; margin-bottom: 80px;"><a href="{% url 'afterlogin' %} " style="text-decoration: none; color: white; ">Register Now!</a></button>
+{% else %}
+<button type="button" class="btn btn-danger" style="margin-top: 190px; margin-left: 600px; height: 70px; margin-bottom: 80px;"><a href="{% url 'signin' %} " style="text-decoration: none; color: white; ">Register Now!</a></button>
+{% endif %}
 </body>
 </html>

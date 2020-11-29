@@ -64,6 +64,19 @@
 </nav>
 
 <!-- Header with full-height image -->
+{% if user.is_authenticated %}
+<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home" style="background-image: url({% static 'images/party-wallpaper-2.jpg' %})">
+  <div class="w3-display-left w3-text-white" style="text-align: center; padding-left: 200px;">
+    <span class="w3-jumbo w3-hide-small" style="font-family: 'Archivo Black';font-size: 100px;text-shadow: 2px 2px 4px #4e2828;">K   K   WAGH   INSTITUTE'S</span><br>
+    <span class="w3-xxxlarge w3-hide-small" style="text-shadow: 2px 2px 4px #000000;">Ultimate Collection of Yearly College Events</span><br>
+    <span class="w3-xxlarge w3-hide-large w3-hide-medium">Start something that matters</span><br>
+    <span class="w3-large" style="text-shadow: 2px 2px 4px #000000;">Start utilizing your valuable time to nourish your personality.</span>
+    
+  </div>
+</header>
+{% else %}
+
+
 <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home" style="background-image: url({% static 'images/party-wallpaper-2.jpg' %})">
   <div class="w3-display-left w3-text-white" style="text-align: center; padding-left: 200px;">
     <span class="w3-jumbo w3-hide-small" style="font-family: 'Archivo Black';font-size: 100px;text-shadow: 2px 2px 4px #4e2828;">K   K   WAGH   INSTITUTE'S</span><br>
@@ -73,7 +86,7 @@
     <p><a href="{% url 'register' %}" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off" style=" box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">Register</a></p>
   </div>
 </header>
-
+{% endif %}
 
 <div class="w3-container" style="padding:12px 16px; font-size: 125%" id="about">
   <h3 class="w3-center" style="font-size: 250%"><b>Upcoming Events</b></h3>
@@ -135,7 +148,7 @@
           </div>
           <div class="flip-card-back">
             <h1>CHEMFEST</h1>
-            <p>Department of Chemical Emgineering</p>
+            <p>Department of Chemical Engineering</p>
             <p></p>
           </div>
         </div>

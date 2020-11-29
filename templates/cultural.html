@@ -28,11 +28,12 @@
 			<script src="{% static 'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js' %}"></script>
       <style>
             body{
-                  background-color: #0f4c75;
+                  background-color: #080E2C;
             }
             /* Heading of page*/
             h2{
-                  text-align: center;
+                  
+                  
                   font-family: 'Libre Baskerville', serif;
                   color: white;
                   margin-top: 50px;
@@ -91,7 +92,7 @@
                   line-height: 1.8;
             }
             #committee{
-                  background-color: #24a19c;
+                  background-color: #cfd1da;
                   margin-top: 50px;
                   border: 5px solid #f08a5d;
                   overflow: hidden;
@@ -159,26 +160,30 @@ body, html {
   <!-- Navbar (sit on top) -->
 <div class="w3-top" >
   <div class="w3-bar w3-white w3-card" id="myNavbar" style="min-height: 75px; padding-top: 12px;">
-    <a href="#home" class="w3-bar-item w3-btn"style="font-size: 150%; padding-top: 10px;">EVENTCON 2020</a>
+    <a href="{% url 'home' %}" class="w3-bar-item w3-btn"style="font-size: 150%; padding-top: 10px;text-decoration: none;">EVENTCON 2020</a>
     <!-- Right-sided navbar links -->
     <div class="w3-right " style="font-size: 125%">
-      <a href="#" class="w3-bar-item w3-btn"><i class="fa fa-home"></i> HOME</a>
-      <a href="{% url 'about' %}" class="w3-bar-item w3-btn"><i class='fa fa-exclamation-circle'></i> ABOUT</a>
-      <a href="#" class="w3-bar-item w3-btn"><i class="fa fa-th-large"></i> EVENTS</a>
+      <a href="{% url 'home' %}" class="w3-bar-item w3-btn" style="text-decoration: none;"><i class="fa fa-home" ></i> HOME</a>
+      <a href="{% url 'about' %}" class="w3-bar-item w3-btn" style="text-decoration: none;"><i class='fa fa-exclamation-circle'></i> ABOUT</a>
+      <a href="#" class="w3-bar-item w3-btn" style="text-decoration: none;"><i class="fa fa-th-large"></i> EVENTS</a>
       <div class="w3-dropdown-hover">
         <button class="w3-btn"> CATEGORIES
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="w3-dropdown-content w3-bar-block w3-card-4">
-          <a href="{% url 'department' %}" class="w3-bar-item w3-btn">Departmental Events</a>
-          <a href="{% url 'cultural' %}" class="w3-bar-item w3-btn">Cultural Fests</a>
-          <a href="{% url 'sports' %}" class="w3-bar-item w3-btn">Sports Events</a>
-          <a href="{% url 'clubs' %}" class="w3-bar-item w3-btn">Clubs and Committees</a>
-          <a href="#" class="w3-bar-item w3-btn">Workshops and Webinars</a>
+          <a href="{% url 'department' %}" class="w3-bar-item w3-btn "style="text-decoration: none;">Departmental Events</a>
+          <a href="{% url 'cultural' %}" class="w3-bar-item w3-btn"style="text-decoration: none;">Cultural Fests</a>
+          <a href="{% url 'sports' %}" class="w3-bar-item w3-btn"style="text-decoration: none;">Sports Events</a>
+          <a href="{% url 'clubs' %}" class="w3-bar-item w3-btn"style="text-decoration: none;">Clubs and Committees</a>
+          <a href="#" class="w3-bar-item w3-btn"style="text-decoration: none;">Workshops and Webinars</a>
         </div>
       </div>
      
-      <a href="{% url 'signin' %}" class="w3-bar-item w3-btn"><i class="fa fa-envelope"></i> LOGIN</a>
+      {% if user.is_authenticated %}
+      <a href = "logout" class="w3-bar-item w3-btn" style="text-decoration: none;"><i class="fa fa-envelope">Logout</a>
+      {% else %}
+      <a href="{% url 'signin' %}" class="w3-bar-item w3-btn" style="text-decoration: none;"><i class="fa fa-envelope"></i> LOGIN</a>
+      {% endif %}
       
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
@@ -192,14 +197,14 @@ body, html {
 <!-- Sidebar on small screens when clicking the menu icon -->
 <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
   <a href="{% static 'javascript:void(0)' %}" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-  <a href="#home" onclick="w3_close()" class="w3-bar-item w3-button">HOME</a>
+  <a href="{% url 'home' %}" onclick="w3_close()" class="w3-bar-item w3-button">HOME</a>
   <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
   <a href="#events" onclick="w3_close()" class="w3-bar-item w3-button">EVENTS</a>
   <a href="#categories" onclick="w3_close()" class="w3-bar-item w3-button">CATEGORIES</a>
   <a href="{% url 'signin' %}" onclick="w3_close()" class="w3-bar-item w3-button">LOGIN</a>
 </nav>
 
-      <h2>CULTURAL EVENTS</h2>
+      <h2 style="padding-top: 50px; text-align: center;">CULTURAL EVENTS</h2>
       
       <div class = "container">
         {% for i in event_list2 %}
@@ -210,20 +215,20 @@ body, html {
                    <img src = "{{baseUrl}}/{{i.event_poster}}" class="responsive" height="190px" width="270px">
                  </div>
             </div>
-             <h4>{{i.culture_name}}</h4>
-             <p class="hidden-sm hidden-xs">
-                 {{i.details}}<span><br>
-                {{i.venue}}<br>{{i.r_fees}}</span>
+             <h2 style="color: black;">{{i.culture_name}}</h2>
+             <p class="hidden-sm hidden-xs" style="color: black;font-size: 1.2em;">
+                 <h3>{{i.details}}</h3><span style="color: black; font-size: 1.2em;"><br>
+                Venue : {{i.venue}}<br>Fees : {{i.r_fees}}</span>
              </p>
 
         </div>
         {% else %}
          <div class = "row" id = "committee">
              <div class = "col-md-8 col-sm-6">
-             <h4>{{i.culture_name}}</h4>
-             <p class="hidden-sm hidden-xs">
-              {{i.details}}
-                 <span><br>{{i.venue}}<br>{{i.r_fees}}</span>
+             <h2 style="color: black; font-weight: bold;">{{i.culture_name}}</h2>
+             <p class="hidden-sm hidden-xs" style="color: black;font-size: 1.2em;">
+              <h3>{{i.details}}</h3>
+                 <span style="color: black;font-size: 1.2em;"><br>Venue : {{i.venue}}<br>Fees : {{i.r_fees}}</span>
                </p>
 
                </div>
@@ -236,7 +241,11 @@ body, html {
          <br>
          <br>
       </div>
-
+      {% if user.is_authenticated %}
+      <button type="button" class="btn btn-danger" style="margin-top: 190px; margin-left: 600px; height: 70px; margin-bottom: 80px;"><a href="{% url 'afterlogin' %} " style="text-decoration: none; color: white; ">Register Now!</a></button>
+      {% else %}
+      <button type="button" class="btn btn-danger" style="margin-top: 190px; margin-left: 600px; height: 70px; margin-bottom: 80px;"><a href="{% url 'signin' %} " style="text-decoration: none; color: white; ">Register Now!</a></button>
+      {% endif %}
 
 </body>
 </html>
