@@ -56,7 +56,7 @@
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="#4">
+            <a class="nav-link" href="{% url 'home' %}">
               <i class="material-icons">home</i>
               <p>Discover More</p>
             </a>
@@ -95,25 +95,19 @@
               <h3 class="card-title">Notifications</h3>
             </div>
             <br>
+            {% for i in record %}
             <div class="card-body">
               <div class="row">
                 <div class="col-md-6">
                   <div class="alert alert-info">
-                    <span>Your profile is successfully updated</span>
+                    <span>Your profile is successfully updated on {{i.0}}</span>
                   </div>
                 </div>
             </div>
           </div>
-            <div class="card-body">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="alert alert-info">
-                    <span>You've successfully registered for Elocution competition</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-body">
+          {% endfor %}
+          
+            <!--<div class="card-body">
               <div class="row">
                 <div class="col-md-6">
                   <div class="alert alert-info">
@@ -121,4 +115,4 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div>-->

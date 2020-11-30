@@ -286,6 +286,7 @@ select * from Participates;
 select * from events_sports;
 select * from events_event;
 select * from events_student;
+select * from student_audit;
 select * from auth_user;
 delete from events_event where event_id=15;
 
@@ -308,3 +309,47 @@ SELECT Participates.event_id, event_name
                         JOIN events_event 
                         ON Participates.event_id = events_event.event_id 
                         WHERE student_id = 3;
+use login;                        
+create table student_audit(
+action varchar(20) not null,
+student_id int,
+first_name varchar(50),
+last_name varchar(50),
+email_id varchar(50),
+branch varchar(30),
+year int,
+changed_date date);
+drop trigger after_update;
+drop table student_audit;
+
+create table event_audit(
+action varchar(20) not null,
+student_id int,
+event_id int ,
+participate_date date);
+              
+              drop table event_audit;
+CREATE TRIGGER after_update AFTER UPDATE ON events_student 
+FOR EACH ROW
+INSERT INTO student_audit
+SET action = 'UPDATE',
+student_id = OLD.student_id,
+first_name = OLD.first_name,
+last_name = OLD.last_name,
+email_id = OLD.email_id,
+branch = OLD.branch,
+year = OLD.year,
+changed_date = NOW();
+drop table event_audit;
+CREATE TRIGGER after_register AFTER INSERT ON Participates
+FOR EACH ROW
+INSERT INTO event_audit values('Registered',new.student_id,
+new.event_id,NOW());
+
+
+drop trigger after_register;
+
+
+
+select * from event_audit;
+update events_student set first_name = 'Aisha' where student_id = 1;

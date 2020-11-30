@@ -30,7 +30,7 @@
       <a href="#" class="w3-bar-item w3-btn"><i class="fa fa-home"></i> HOME</a>
       {% endif %}
       <a href="{% url 'about' %}" class="w3-bar-item w3-btn"><i class='fa fa-exclamation-circle'></i> ABOUT</a>
-      <a href="#" class="w3-bar-item w3-btn"><i class="fa fa-th-large"></i> EVENTS</a>
+      
       <div class="w3-dropdown-hover">
         <button class="w3-btn"> CATEGORIES
           <i class="fa fa-caret-down"></i>
@@ -40,7 +40,7 @@
           <a href="{% url 'cultural' %}" class="w3-bar-item w3-btn">Cultural Fests</a>
           <a href="{% url 'sports' %}" class="w3-bar-item w3-btn">Sports Events</a>
           <a href="{% url 'clubs' %}" class="w3-bar-item w3-btn">Clubs and Committees</a>
-          <a href="#" class="w3-bar-item w3-btn">Workshops and Webinars</a>
+          
         </div>
       </div>
       {% if user.is_authenticated %}

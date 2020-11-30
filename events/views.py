@@ -126,9 +126,14 @@ def equinox1(request):
 
 def register(request):
    return render(request,'register.html')
-
+new_record = []
 def notifications1(request):
-    return notifications(request)
+    id = getStudentId()
+    cur = connection.cursor()
+    cur.execute('''SELECT changed_date from student_audit where student_id = %s''',[id])
+    record = cur.fetchall()
+    cur.close() 
+    return render(request,'notifications1.html',{'record':record})
        
 
 def template(request):
@@ -268,7 +273,7 @@ def userdetails(request):
     return render(request,'user1.html', {'profileResults' : profileResults, "username": getAuthUserName()})   
 
 def notifications(request):
-    return render(request,'notifications1.html', {"username": getAuthUserName()})  
+    return notifications1(request) 
 
 def table1(request):
     return table(request)
