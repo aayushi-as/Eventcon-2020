@@ -4,168 +4,131 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Colorlib Templates">
-    <meta name="author" content="Colorlib">
-    <meta name="keywords" content="Colorlib Templates">
+  <!-- Required meta tags-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Colorlib Templates">
+  <meta name="author" content="Colorlib">
+  <meta name="keywords" content="Colorlib Templates">
 
-    <!-- Title Page-->
-    <title>REGISTRATION</title>
+  <!-- Title Page-->
+  <title>REGISTRATION</title>
 
-    <!-- Icons font CSS-->
-    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <!-- Font special for pages-->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
-        rel="stylesheet">
+  <!-- Icons font CSS-->
+  <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+  <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+  <!-- Font special for pages-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
+    rel="stylesheet">
 
-    <!-- Vendor CSS-->
-    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+  <!-- Vendor CSS-->
+  <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+  <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
 
-    <!-- Main CSS-->
-    <link href="{% static 'css/main.css' %}" rel="stylesheet" media="all">
+  <!-- Main CSS-->
+  <link href="{% static 'css/main.css' %}" rel="stylesheet" media="all">
+  <script>
+    var subjectObject = {
+      "Cultural": {
+        "Rangoli Competition": ["None"],
+        "Poster Competition": ["None"],
+        "Soft Skills": ["None"],
+        "Nakshatrache Dene": ["None"],
+        "Sketching and Drawing": ["None"],
+        "Personality Contest": ["None"],
+        "Fashion Show": ["None"]
+      },
+      "Sports": {
+        "Chess": ["None"],
+        "Badminton": ["None"],
+        "Carrom": ["None"],
+        "Cricket": ["None"],
+        "Football": ["None"],
+        "Table Tennis": ["None"],
+        "Basketball": ["None"]
 
+      },
+      "Departmental": {
+        "Computer": ["Source Code", "Insync", "Shutterbug", "Hackathon", "Tech-Hunt", "White Collar", "Lekh Yaag", "Genesis", "Workshop on AR and VR"],
+        "Production": ["Logo Quiz", "Maniac", "PPT Competition", "Save the Eggstronaut", "Snookball"],
+        "E&TC": ["Make your Quibbler", "Show your Patronous", "Brew your Potion", "Crack the Owls"],
+        "Civil": ["Bridge O Mania", "Tower Power", "Poster Making", "Snap Hunt", "Cad Enza", "Quiz", "Drama", "Fancy Bouyancy"],
+        "Chemical": ["Salt Act", "Placement Bizzare", "Tech Paper", "Gol Gappa Race", "Chem O Race"],
+        "Mechanical": ["Art Motion", "Black Tye", "Box Cricket", "Foos Ball", "Gamers Arena", "Hopipola", "Lathe War", "Lazer Maze", "Picturesque", "Robo Race", "Treasure Hunt"],
+        "IT": ["Snakes And Ladders", "Attractive Photo", "FIFA", "Foldoscope"]
+
+      }
+    }
+    window.onload = function () {
+      var subjectSel = document.getElementById("event");
+      var topicSel = document.getElementById("topic");
+      var chapterSel = document.getElementById("sub_event");
+      for (var x in subjectObject) {
+        subjectSel.options[subjectSel.options.length] = new Option(x, x);
+      }
+      subjectSel.onchange = function () {
+        //display correct values
+        for (var y in subjectObject[this.value]) {
+          topicSel.options[topicSel.options.length] = new Option(y, y);
+        }
+      }
+      topicSel.onchange = function () {
+        //display correct values
+        var z = subjectObject[subjectSel.value][this.value];
+        for (var i = 0; i < z.length; i++) {
+          chapterSel.options[chapterSel.options.length] = new Option(z[i], z[i]);
+        }
+      }
+    }
+  </script>
 
 </head>
 
 <body>
-    <div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
-        <div class="wrapper wrapper--w680">
-            <div class="card card-1">
-                <div class="card-heading"></div>
-                <div class="card-body">
-                    <h2 class="title">Registration Form</h2>
-                    <form method="POST" action="eventRegistration">
-                        {% csrf_token %}
-                        <div class="input-group">
-                            <input class="input--style-1" type="text" placeholder="USERNAME" name="username" required>
-                        </div>
-                        <label for="event">CHOOSE YOUR EVENT:</label>
-                        <span></span>
-                        <select name="class" required>
-                            <option disabled="disabled" selected="selected">Select Event</option>
-                            <optgroup label="Cultural Events">
-                                <option value="Rangoli Competition" >Rangoli Competition</option>
-                                <option value="Poster Competition">Poster Competition</option>
-                                <option value="Soft Skills">Soft Skills</option>
-                                <option value="Nakshatrache Dene">Nakshatrache Dene</option>
-                                <option value="Sketching and Drawing">Sketching and Drawing</option>
-                                <option value="Personality Contest">Personality Contest</option>
-                                <option value="Fashion Show">Fashion Show</option>
-                            </optgroup>
-                            <optgroup label="Sports Events" >
-                                <option value="Chess">Chess</option>
-                                <option value="Badminton">Badminton</option>
-                                <option value="Carrom">Carrom</option>
-                                <option value="Cricket">Cricket</option>
-                                <option value="Football">Football</option>
-                                <option value="Table tennise">Table tennise</option>
-                                <option value="Basketball">Basketball</option>
-                            </optgroup>
-                            <optgroup label="Clubs and Committee">
-                                <option value="CSI">CSI</option>
-                                <option value="NSS">NSS</option>
-                                <option value="ISTE">ISTE</option>
-                                <option value="IET">IET</option>
-                                <option value="Prayas">Prayas</option>
-                                <option value="Swapnapurti">Swapnapurti</option>
-                                <option value="Rotaract">Rotaract</option>
-                                <option value="Debuggers">Debuggers</option>
-                                <option value="Whitespot">Whitespot</option>
-                                <option value="Astro Club">Astro Club</option>
-                                <option value="IOT">IOT</option>
-                                <option value="Redx">Redx</option>
-                                <option value="EDC">EDC</option>
-                                <option value="Financial Literacy Club">Financial Literacy Club</option>
-                            </optgroup>
-                            <optgroup label="Departmental Events">
-                            <optgroup label="Equinox_2020">
-                                <option value="Source Code">Source Code</option>
-                                <option value="Insync">Insync</option>
-                                <option value="Shutterbug">Shutterbug</option>
-                                <option value="Tech Hunt">Tech Hunt</option>
-                                <option value="Whitecollar">Whitecollar</option>
-                                <option value="Genesis">Genesis</option>
-                                <option value="Hackathon">Hackathon</option>
-                                <option value="Workshop on AR and VR">Workshop on AR and VR</option>
-                            </optgroup>
-                            <optgroup label="Telekinesis_2020">
-                                <option value="Make your Quibbler">Make your Quibble</option>
-                                <option value="Show your Patronous">Show your Patronous</option>
-                                <option value="Brew your Potion">Brew your Potion</option>
-                                <option value="Crack the OWLS">Crack the OWLS</option>
-                            </optgroup>
-                            <optgroup label="Invasion_2020">
-                                <option value="Logo Quiz">Logo Quiz</option>
-                                <option value="Maniac">Maniac</option>
-                                <option value="PPT Competition">PPT Competition</option>
-                                <option value="Save the Eggstronaut">Save the Eggstronaut</option>
-                                <option value="Snookball">Snookball</option>
-                            </optgroup>
-                            <optgroup label="Itiazaa_2020">
-                                <option value="Snakes And Ladders">Snakes And Ladders</option>
-                                <option value="Attractive Photo">Attractive Photo</option>
-                                <option value="FIFA">FIFA</option>
-                                <option value="Foldoscope">Foldoscope</option>
-                            </optgroup>
-                            <optgroup label="Mecheaven_2020">
-                                <option value="Art Motion">Art Motion</option>
-                                <option value="Black Tye">Black Tye</option>
-                                <option value="Box Cricket">Box Cricket</option>
-                                <option value="Foos Ball">Foos Ball</option>
-                                <option value="Gamers Arena">Gamers Arena</option>
-                                <option value="Hopipola">Hopipola</option>
-                                <option value="Lathe War">Lathe War</option>
-                                <option value="Lazer Maze">Lazer Maze</option>
-                                <option value="Picturesque">Picturesque</option>
-                                <option value="Robo Race">Robo Race</option>
-                                <option value="Treasure Hunt">Treasure Hunt</option>
-                            </optgroup>
-                            <optgroup label="Force_2020">
-                                <option value="Bridge O Mania">Bridge O Mania</option>
-                                <option value="Tower Power">Tower Power</option>
-                                <option value="Poster Making">Poster Making</option>
-                                <option value="Snap Hunt">Snap Hunt</option>
-                                <option value="Cad Enza">Cad Enza</option>
-                                <option value="Quiz">Quiz</option>
-                                <option value="Drama">Drama</option>
-                                <option value="Fancy Bouyancy">Fancy Bouyancy</option>
-                            </optgroup>
-                            <optgroup label="Chemfest_2020">
-                                <option value="Placement Bizzare">Placement Bizzare</option>
-                                <option value="Tech Paper">Tech Paper</option>
-                                <option value="Gol Gappa Race">Gol Gappa Race</option>
-                                <option value="Chem O Race">Chem O Race</option>
-                            </optgroup>
-                            </optgroup>
-                        </select>
-
-                        <br>
-                        <br>
-
-                        <div class="p-t-20">
-                            <button class="btn btn--radius btn--green" type="submit">Submit</button>
-                        </div>
-                    </form>
-                </div>
+  <div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
+    <div class="wrapper wrapper--w680">
+      <div class="card card-1">
+        <div class="card-heading"></div>
+        <div class="card-body">
+          <h2 class="title">Registration Form</h2>
+          <form method="POST" action="eventRegistration">
+            <div class="input-group">
+                <input class="input--style-1" type="text" placeholder="USERNAME" name="username" required>
             </div>
+            {% csrf_token %}
+            Category    : <select name="category" id="event">
+              <option value="" selected="selected">Select Event Type</option>
+            </select>
+            <br><br>
+            Event       : <select name="event" id="topic">
+              <option value="" selected="selected">Please select Event Type first</option>
+            </select>
+            <br><br>
+            Subevent    : <select name="sub_event" id="sub_event">
+              <option value="" selected="selected">Please select Sub Event first</option>
+            </select>
+            <br><br>
+            <div class="p-t-20">
+              <button class="btn btn--radius btn--green" type="submit">Submit</button>
+            </div>
+
+          </form>
         </div>
+      </div>
     </div>
+  </div>
 
-    <!-- Jquery JS-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <!-- Vendor JS-->
-    <script src="vendor/select2/select2.min.js"></script>
-    <script src="vendor/datepicker/moment.min.js"></script>
-    <script src="vendor/datepicker/daterangepicker.js"></script>
+  <!-- Jquery JS-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <!-- Vendor JS-->
+  <script src="vendor/select2/select2.min.js"></script>
+  <script src="vendor/datepicker/moment.min.js"></script>
+  <script src="vendor/datepicker/daterangepicker.js"></script>
 
 
 
-    <!-- Main JS-->
-    <script src="js/global.js"></script>
+  <!-- Main JS-->
+  <script src="js/global.js"></script>
 
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->

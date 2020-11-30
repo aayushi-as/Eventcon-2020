@@ -277,9 +277,40 @@ def afterlogin(request):
     return render(request,'afterlogin.html')      
 
 def eventRegistration(request):
-    event_name = request.POST['class']
-    print("class",event_name)
-    return render(request,'afterlogin.html')
+    category = request.POST['category']
+    event = request.POST['event']
+    sub_event = request.POST['sub_event']
+
+    cur = connection.cursor()
+    if category == "Departmental":
+        cur2 = connection.cursor()
+        cur2.execute('''SELECT dept_id
+                        FROM events_dept
+                        WHERE dept_name = %s''', [event])
+        deptId, = cur2.fetchone()
+        cur2.close()
+        
+        cur.execute('''SELECT event_id
+                        FROM events_departmental
+                        WHERE dept_id = %s AND subevent_name = %s''', [deptId, sub_event])
+        event_id, = cur.fetchone()
+    elif category == "Cultural":
+        cur.execute(''' SELECT event_id
+                        FROM events_cultural
+                        WHERE culture_name = %s''', [event])
+        event_id, = cur.fetchone()
+    elif category == "Sports":
+        cur.execute(''' SELECT event_id
+                        FROM events_sports
+                        WHERE sports_name = %s''', [event])
+        event_id, = cur.fetchone()
+    cur.close()
+    cur1 = connection.cursor()
+    cur1.execute('''INSERT INTO Participates 
+                    VALUES(%s, %s)''', [getStudentId(), event_id])
+    cur1.close()
+    return home(request)
+
 
 def table(request):
     cur = connection.cursor()
