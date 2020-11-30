@@ -51,7 +51,11 @@ body, html {
       <a href="{% url 'home' %}" class="w3-bar-item w3-btn"style="font-size: 150%; padding-top: 10px;text-decoration: none;">EVENTCON 2020</a>
       <!-- Right-sided navbar links -->
       <div class="w3-right " style="font-size: 125%">
-        <a href="{% url 'home' %}" class="w3-bar-item w3-btn"style="text-decoration: none;"><i class="fa fa-home"></i> HOME</a>
+        {% if user.is_authenticated %}
+        <a href="{% url 'template' %}" class="w3-bar-item w3-btn"><i class="fa fa-user"></i> ME</a>
+        {% else %}
+        <a href="#" class="w3-bar-item w3-btn"><i class="fa fa-home"></i> HOME</a>
+        {% endif %}        
         <a href="{% url 'about' %}" class="w3-bar-item w3-btn"style="text-decoration: none;"><i class='fa fa-exclamation-circle'></i> ABOUT</a>
         <a href="#" class="w3-bar-item w3-btn"style="text-decoration: none;"><i class="fa fa-th-large"></i> EVENTS</a>
         <div class="w3-dropdown-hover">
@@ -67,7 +71,7 @@ body, html {
           </div>
         </div>
         {% if user.is_authenticated %}
-        <a href = "logout" class="w3-bar-item w3-btn"style="text-decoration: none;"><i class="fa fa-envelope">Logout</a>
+        <a href = "logout" class="w3-bar-item w3-btn"style="text-decoration: none;"><i class="fa fa-envelope"></i> LOGOUT</a>
         {% else %}
         <a href="{% url 'signin' %}" class="w3-bar-item w3-btn"style="text-decoration: none;"><i class="fa fa-envelope"></i> LOGIN</a>
         {% endif %}
@@ -183,15 +187,11 @@ body, html {
                 <h5 style="text-align: center;">Do register for events!</h5>
 
                 <ul class="list-group text-center list-group" style="margin: 2rem;" id="listId">
-                    <li class="list-group-item list-group-item-info">Source Code</li>
-                    <li class="list-group-item list-group-item-danger">Inksync</li>
-                    <li class="list-group-item list-group-item-warning">Shutterburg</li>
-                    <li class="list-group-item list-group-item-info">Hackathon</li>
-                    <li class="list-group-item list-group-item-danger">Tech-Hunt</li>
-                    <li class="list-group-item list-group-item-warning">White Collar</li>
-                    <li class="list-group-item list-group-item-info">Lekh Yaag</li>
-                    <li class="list-group-item list-group-item-danger">Genesis</li>
-                    <li class="list-group-item list-group-item-warning">Workshop on AR and VR</li>
+                    <li class="list-group-item list-group-item-info">Logo Quiz</li>
+                    <li class="list-group-item list-group-item-danger">Maniac</li>
+                    <li class="list-group-item list-group-item-warning">PPT Competition</li>
+                    <li class="list-group-item list-group-item-info">Save the Eggstrounaut</li>
+                    <li class="list-group-item list-group-item-danger">Snookball</li>
                 </ul>
             </div>
 
@@ -229,15 +229,10 @@ body, html {
                 <h5 style="text-align: center;">Do register for events!</h5>
 
                 <ul class="list-group text-center list-group" style="margin: 2rem;" id="listId">
-                    <li class="list-group-item list-group-item-info">Source Code</li>
-                    <li class="list-group-item list-group-item-danger">Inksync</li>
-                    <li class="list-group-item list-group-item-warning">Shutterburg</li>
-                    <li class="list-group-item list-group-item-info">Hackathon</li>
-                    <li class="list-group-item list-group-item-danger">Tech-Hunt</li>
-                    <li class="list-group-item list-group-item-warning">White Collar</li>
-                    <li class="list-group-item list-group-item-info">Lekh Yaag</li>
-                    <li class="list-group-item list-group-item-danger">Genesis</li>
-                    <li class="list-group-item list-group-item-warning">Workshop on AR and VR</li>
+                    <li class="list-group-item list-group-item-info">Make your Quibbler</li>
+                    <li class="list-group-item list-group-item-danger">Show your Patronous</li>
+                    <li class="list-group-item list-group-item-warning">Brew your Potion</li>
+                    <li class="list-group-item list-group-item-info">Crack the OWLS</li>
                 </ul>
             </div>
 
@@ -275,15 +270,14 @@ body, html {
                 <h5 style="text-align: center;">Do register for events!</h5>
 
                 <ul class="list-group text-center list-group" style="margin: 2rem;" id="listId">
-                    <li class="list-group-item list-group-item-info">Source Code</li>
-                    <li class="list-group-item list-group-item-danger">Inksync</li>
-                    <li class="list-group-item list-group-item-warning">Shutterburg</li>
-                    <li class="list-group-item list-group-item-info">Hackathon</li>
-                    <li class="list-group-item list-group-item-danger">Tech-Hunt</li>
-                    <li class="list-group-item list-group-item-warning">White Collar</li>
-                    <li class="list-group-item list-group-item-info">Lekh Yaag</li>
-                    <li class="list-group-item list-group-item-danger">Genesis</li>
-                    <li class="list-group-item list-group-item-warning">Workshop on AR and VR</li>
+                    <li class="list-group-item list-group-item-info">Bridge O Mania</li>
+                    <li class="list-group-item list-group-item-danger">Tower Power</li>
+                    <li class="list-group-item list-group-item-warning">Poster Making</li>
+                    <li class="list-group-item list-group-item-info">Snap Hunt</li>
+                    <li class="list-group-item list-group-item-danger">CAD Enza</li>
+                    <li class="list-group-item list-group-item-warning">Quiz</li>
+                    <li class="list-group-item list-group-item-info">Drama</li>
+                    <li class="list-group-item list-group-item-danger">Fancy Bouyancy</li>
                 </ul>
             </div>
 
@@ -321,15 +315,10 @@ body, html {
                 <h5 style="text-align: center;">Do register for events!</h5>
 
                 <ul class="list-group text-center list-group" style="margin: 2rem;" id="listId">
-                    <li class="list-group-item list-group-item-info">Source Code</li>
-                    <li class="list-group-item list-group-item-danger">Inksync</li>
-                    <li class="list-group-item list-group-item-warning">Shutterburg</li>
-                    <li class="list-group-item list-group-item-info">Hackathon</li>
-                    <li class="list-group-item list-group-item-danger">Tech-Hunt</li>
-                    <li class="list-group-item list-group-item-warning">White Collar</li>
-                    <li class="list-group-item list-group-item-info">Lekh Yaag</li>
-                    <li class="list-group-item list-group-item-danger">Genesis</li>
-                    <li class="list-group-item list-group-item-warning">Workshop on AR and VR</li>
+                    <li class="list-group-item list-group-item-info">Placement Bizzare</li>
+                    <li class="list-group-item list-group-item-danger">Tech Paper</li>
+                    <li class="list-group-item list-group-item-warning">Gol Gappa Race</li>
+                    <li class="list-group-item list-group-item-info">Chem O Race</li>
                 </ul>
             </div>
 
@@ -367,15 +356,15 @@ body, html {
                 <h5 style="text-align: center;">Do register for events!</h5>
 
                 <ul class="list-group text-center list-group" style="margin: 2rem;" id="listId">
-                    <li class="list-group-item list-group-item-info">Source Code</li>
-                    <li class="list-group-item list-group-item-danger">Inksync</li>
-                    <li class="list-group-item list-group-item-warning">Shutterburg</li>
-                    <li class="list-group-item list-group-item-info">Hackathon</li>
-                    <li class="list-group-item list-group-item-danger">Tech-Hunt</li>
-                    <li class="list-group-item list-group-item-warning">White Collar</li>
-                    <li class="list-group-item list-group-item-info">Lekh Yaag</li>
-                    <li class="list-group-item list-group-item-danger">Genesis</li>
-                    <li class="list-group-item list-group-item-warning">Workshop on AR and VR</li>
+                    <li class="list-group-item list-group-item-info">Art Motion</li>
+                    <li class="list-group-item list-group-item-danger">Black Tye</li>
+                    <li class="list-group-item list-group-item-warning">Box Cricket</li>
+                    <li class="list-group-item list-group-item-info">Foos Ball</li>
+                    <li class="list-group-item list-group-item-danger">Gamer's Arena</li>
+                    <li class="list-group-item list-group-item-warning">Hoppipola</li>
+                    <li class="list-group-item list-group-item-info">Lathe War</li>
+                    <li class="list-group-item list-group-item-danger">Lazer Maze</li>
+                    <li class="list-group-item list-group-item-warning">Picturesque</li>
                 </ul>
             </div>
 
@@ -393,7 +382,7 @@ body, html {
 </div>
 
 <!-- -----------------------------Itiazza Modal------------------------------------ -->
-<div class="modal fade" id="Itiazza_Modal">
+<div class="modal fade" id="Itiazaa_Modal">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
 
@@ -401,9 +390,9 @@ body, html {
             <div class="department">
         <!-- <div class="modal-header"></div> -->
                 <button type="button" class="close" data-dismiss="modal">×</button>
-                <h4>DEPARTMENT OF COMPUTER ENGINEERING</h4>
+                <h4>DEPARTMENT OF INFORMATION TECHNOLOGY</h4>
                 <h5>presents</h5>
-                <h4>EQUINOX 2020</h4>
+                <h4>ITIAZAA 2020</h4>
             </div>
             <hr>
         <!---------- Modal Body------------ -->
@@ -413,15 +402,10 @@ body, html {
                 <h5 style="text-align: center;">Do register for events!</h5>
 
                 <ul class="list-group text-center list-group" style="margin: 2rem;" id="listId">
-                    <li class="list-group-item list-group-item-info">Source Code</li>
-                    <li class="list-group-item list-group-item-danger">Inksync</li>
-                    <li class="list-group-item list-group-item-warning">Shutterburg</li>
-                    <li class="list-group-item list-group-item-info">Hackathon</li>
-                    <li class="list-group-item list-group-item-danger">Tech-Hunt</li>
-                    <li class="list-group-item list-group-item-warning">White Collar</li>
-                    <li class="list-group-item list-group-item-info">Lekh Yaag</li>
-                    <li class="list-group-item list-group-item-danger">Genesis</li>
-                    <li class="list-group-item list-group-item-warning">Workshop on AR and VR</li>
+                    <li class="list-group-item list-group-item-info">Snakes And Ladder</li>
+                    <li class="list-group-item list-group-item-danger">Attractive Photo</li>
+                    <li class="list-group-item list-group-item-warning">FIFA</li>
+                    <li class="list-group-item list-group-item-info">Foldoscope</li>
                 </ul>
             </div>
 

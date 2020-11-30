@@ -79,6 +79,7 @@ def equinox1(request):
         dept_events = cursors.fetchall() 
         #dept_events = list(record)                   
         return render(request,'equinox1.html',{'dept_events':dept_events})  
+
     elif request.GET.get('civil') == 'Details':
         d_id = 204
        
@@ -176,9 +177,7 @@ def validate(request):
         cur.execute("SELECT student_id FROM events_student WHERE email_id = %s", [user.email])
         id, = cur.fetchone()
         setStudentId(id)
-        dashboard_results = getDashboardDetails(id, cur)
-        cur.close()
-        return render(request,'template.html', {'dashboard_results' :  dashboard_results, "username": getAuthUserName()})
+        return render(request, 'home.html')
     else:
         messages.info(request,'Invalid username or password')
         return redirect('signin')      
@@ -275,7 +274,12 @@ def table1(request):
     return table(request)
 
 def afterlogin(request):
-    return render(request,'afterlogin.html')        
+    return render(request,'afterlogin.html')      
+
+def eventRegistration(request):
+    event_name = request.POST['class']
+    print("class",event_name)
+    return render(request,'afterlogin.html')
 
 def table(request):
     cur = connection.cursor()
