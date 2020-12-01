@@ -47,6 +47,7 @@ urlpatterns = [
     path('clubs/logout',views.logout,name='logout'),
     path('department/equinox1/logout',views.logout,name='logout'),
     path('afterlogin/',views.afterlogin,name='afterlogin'),
+    path('afterlogin/logout/',views.logout,name='logout'),
     path('afterlogin/eventRegistration',views.eventRegistration,name='eventRegistration'),
     path('signin/editProfile', views.editProfile, name="editProfile")
 ]

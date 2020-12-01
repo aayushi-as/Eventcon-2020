@@ -350,6 +350,6 @@ new.event_id,NOW());
 drop trigger after_register;
 
 
-
+use login;
 select * from event_audit;
 update events_student set first_name = 'Aisha' where student_id = 1;

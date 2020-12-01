@@ -92,25 +92,29 @@
         <div class="card-body">
           <h2 class="title">Registration Form</h2>
           <form method="POST" action="eventRegistration">
+            {% csrf_token %}
             <div class="input-group">
                 <input class="input--style-1" type="text" placeholder="USERNAME" name="username" required>
             </div>
-            {% csrf_token %}
-            Category    : <select name="category" id="event">
+            
+            Category    : <select name="category" id="event" required>
               <option value="" selected="selected">Select Event Type</option>
             </select>
             <br><br>
-            Event       : <select name="event" id="topic">
+            Event       : <select name="event" id="topic" required>
               <option value="" selected="selected">Please select Event Type first</option>
             </select>
             <br><br>
-            Subevent    : <select name="sub_event" id="sub_event">
+            Subevent    : <select name="sub_event" id="sub_event" required>
               <option value="" selected="selected">Please select Sub Event first</option>
             </select>
             <br><br>
             <div class="p-t-20">
               <button class="btn btn--radius btn--green" type="submit">Submit</button>
             </div>
+            {% if messages %}
+                        <script>alert("Invalid username")</script>
+            {% endif %}
 
           </form>
         </div>

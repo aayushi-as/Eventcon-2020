@@ -133,7 +133,7 @@ def notifications1(request):
     cur.execute('''SELECT changed_date from student_audit where student_id = %s''',[id])
     record = cur.fetchall()
     cur.close() 
-    return render(request,'notifications1.html',{'record':record})
+    return render(request,'notifications1.html',{'record':record,'username':getAuthUserName()})
        
 
 def template(request):
@@ -157,13 +157,16 @@ def login(request):
         password1 = request.POST['password']
         password2 = request.POST['re_password']
         if password1 == password2:
-            user  = User.objects.create_user(username = username,password = password1,email=email,first_name = firstname,last_name = lastname)
-            user.save()
-            stud = Student(first_name=firstname,last_name=lastname,email_id=email,branch=department,year=year)
-            stud.save()
-           
-		    #print("User created")
-        return redirect('/')
+            if User.objects.filter(username = username).exists():
+                #print("Username taken")
+                messages.info(request,'Username exists')
+                return render(request,'register.html')
+            else:    
+                user  = User.objects.create_user(username = username,password = password1,email=email,first_name = firstname,last_name = lastname)
+                user.save()
+                stud = Student(first_name=firstname,last_name=lastname,email_id=email,branch=department,year=year)
+                stud.save()
+                return redirect('/')
     else:
         return render(request,'register.html')
 
@@ -282,6 +285,8 @@ def afterlogin(request):
     return render(request,'afterlogin.html')      
 
 def eventRegistration(request):
+    user = request.POST['username']
+    username = getAuthUserName()
     category = request.POST['category']
     event = request.POST['event']
     sub_event = request.POST['sub_event']
@@ -311,10 +316,14 @@ def eventRegistration(request):
         event_id, = cur.fetchone()
     cur.close()
     cur1 = connection.cursor()
-    cur1.execute('''INSERT INTO Participates 
+    if user == username:
+        cur1.execute('''INSERT INTO Participates 
                     VALUES(%s, %s)''', [getStudentId(), event_id])
-    cur1.close()
-    return home(request)
+        cur1.close()
+        return home(request)
+    else:
+        messages.info(request,'Invalid username or password')
+        return render(request,'afterlogin.html')    
 
 
 def table(request):

@@ -127,13 +127,31 @@
                       <div class="col-md-5">
                         <div class="form-group">
                           <label class="bmd-label-floating">Department</label>
-                          <input type="text" class="form-control" name="department" value="{{ profileResults.3 }}">
+                          <!-- <input type="text" class="form-control" name="department" value="{{ profileResults.3 }}"> -->
+                          <select name="department" class="form-control">
+                            <option value="Computer"{% if profileResults.3 == "Computer" %} selected="selected" {% endif %}>Computer</option>
+                            <option value="IT"{% if profileResults.3 == "IT" %} selected {% endif %}>IT</option>
+                            <option value="E&TC"{% if profileResults.3 == "E&TC" %} selected {% endif %}>E&TC</option>
+                            <option value="Production"{% if profileResults.3 == "Production" %} selected {% endif %}>Production</option>
+                            <option value="Civil"{% if profileResults.3 == "Civil" %} selected {% endif %}>Civil</option>
+                            <option value="Electrical"{% if profileResults.3 == "Electrical" %} selected {% endif %}>Electrical</option>
+                            <option value="Mechanical"{% if profileResults.3 == "Mechanical" %} selected {% endif %}>Mechanical</option>
+                          </select>
                         </div>
                       </div>
                       <div class="col-md-5">
                         <div class="form-group">
                           <label class="bmd-label-floating">Year of Study</label>
-                          <input type="text" class="form-control" name="year" value="{{ profileResults.4 }}">
+                         <!--  <input type="text" class="form-control" name="year" value="{{ profileResults.4 }}">-->
+                        <select name="year" class="form-control">
+                          <option value="1"{% if profileResults.4 == 1 %} selected="selected" {% endif %}>1</option>
+                          <option value="2"{% if profileResults.4 == 2 %} selected {% endif %}>2</option>
+                          <option value="3"{% if profileResults.4 == 3 %} selected {% endif %}>3</option>
+                          <option value="4"{% if profileResults.4 == 4 %} selected {% endif %}>4</option>
+
+                        </select>
+          
+                          </select>
                         </div>
                       </div>
                     </div>

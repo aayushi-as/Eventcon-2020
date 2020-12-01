@@ -33,7 +33,8 @@
                         <div class="form-group">
                             
                                 <select class="form-input" id="department" placeholder="Department" name="department" required>
-                                    <option disabled="disabled" selected="selected">Department</option>
+                                    <!--<option disabled="disabled" selected="selected">Department</option>-->
+                                    <option value="">Select Department</option>
                                     <option>Computer</option>
                                     <option>Production</option>
                                     <option>IT</option>
@@ -50,7 +51,8 @@
                         <div class="form-group">
                             
                             <select type="text" class="form-input" id="year" placeholder="Year" name="year" required>
-                                <option disabled="disabled" selected="selected">Year Of Study</option>
+                                <!--<option disabled="disabled" selected="selected">Year Of Study</option>-->
+                                <option value="">Select year</option>
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
@@ -83,7 +85,7 @@
                         </div>
                     </form>
                     <p class="loginhere">
-                        Have already an account ? <a href="#" class="loginhere-link">Login here</a>
+                        Have already an account ? <a href="{% url 'signin' %}" class="loginhere-link">Login here</a>
                     </p>
                 </div>
             </div>
@@ -94,5 +96,9 @@
     <!-- JS -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="{% static 'js/main.js' %}"></script>
+    {% if messages %}
+                        <script>alert("Username already taken")</script>
+                        {% endif %}
+
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
